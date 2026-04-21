@@ -24,36 +24,29 @@ The next two sections — **Standard Platform** and **Workflow** — are signal�
 
 ### Standard Platform
 
-**Core**
-- Building an application page or route → **Next.js**
-- Writing typed code → **TypeScript**
-- Deploying the application → **Vercel**
-- Hosting source + collaboration → **GitHub**
-- Running CI on every push → **GitHub Actions**
-
-**Frontend**
-- Styling an element → **Tailwind CSS**
-- Composing primitives (dialog, menu, tooltip, etc.) → **Radix** via **shadcn/ui**
-- Design source of truth → **Figma**
-
-**Quality**
-- Verifying UI behaviour end-to-end → **Playwright**
-- Enforcing type correctness → **TypeScript strict**
-- Verifying non-UI logic → **Vitest**
-
-**AI Tooling**
-- Inline code completion while typing → **GitHub Copilot**
-- Agent-driven repo operations → **Claude Code**
-- Generating UI from a prompt or Figma frame → **v0**
-- Looking up framework or Vercel documentation → **Next.js DevTools MCP**, **Vercel MCP**
-- Looking up Microsoft / Azure documentation → **Microsoft Docs MCP**
-- Inspecting a running page (DOM, network, logs) → **Chrome DevTools MCP**
-- Automating a browser (scripted interactions) → **Playwright MCP**
-
-**Operations**
-- Measuring site usage → **Vercel Analytics**
-- Capturing runtime logs and errors → **Vercel runtime observability**
-- Installing and managing dependencies → **npm**
+| Category | Signal | Key | Detail |
+|----------|--------|-----|--------|
+| Core | Building an application page or route | **Next.js** | *[TBD]* |
+| Core | Writing typed code | **TypeScript** | *[TBD]* |
+| Core | Deploying the application | **Vercel** | *[TBD]* |
+| Core | Hosting source + collaboration | **GitHub** | *[TBD]* |
+| Core | Running CI on every push | **GitHub Actions** | *[TBD]* |
+| Frontend | Styling an element | **Tailwind CSS** | *[TBD]* |
+| Frontend | Composing primitives (dialog, menu, tooltip, etc.) | **Radix** via **shadcn/ui** | *[TBD]* |
+| Frontend | Design source of truth | **Figma** | *[TBD]* |
+| Quality | Verifying UI behaviour end-to-end | **Playwright** | *[TBD]* |
+| Quality | Enforcing type correctness | **TypeScript strict** | *[TBD]* |
+| Quality | Verifying non-UI logic | **Vitest** | *[TBD]* |
+| AI Tooling | Inline code completion while typing | **GitHub Copilot** | *[TBD]* |
+| AI Tooling | Agent-driven repo operations | **Claude Code** | *[TBD]* |
+| AI Tooling | Generating UI from a prompt or Figma frame | **v0** | *[TBD]* |
+| AI Tooling | Looking up framework or Vercel documentation | **Next.js DevTools MCP**, **Vercel MCP** | *[TBD]* |
+| AI Tooling | Looking up Microsoft / Azure documentation | **Microsoft Docs MCP** | *[TBD]* |
+| AI Tooling | Inspecting a running page (DOM, network, logs) | **Chrome DevTools MCP** | *[TBD]* |
+| AI Tooling | Automating a browser (scripted interactions) | **Playwright MCP** | *[TBD]* |
+| Operations | Measuring site usage | **Vercel Analytics** | *[TBD]* |
+| Operations | Capturing runtime logs and errors | **Vercel runtime observability** | *[TBD]* |
+| Operations | Installing and managing dependencies | **npm** | *[TBD]* |
 
 Future capabilities (auth, payments, CMS, richer observability) will be chosen from the **Vercel**, **GitHub**, or **Microsoft** ecosystems. This is the binding constraint — specific tools are selected when the need arises, not speculatively.
 
