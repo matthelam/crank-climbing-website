@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Build output
+.next/
+out/
+dist/
+
+# Environment
+.env.local
+.env*.local
+
+# Claude local overrides
+.claude/settings.local.json
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
