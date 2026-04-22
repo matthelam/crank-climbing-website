@@ -14,15 +14,13 @@ Crank welcomes everyone into climbing and ninja — a healthy, friendly communit
 
 ## Technology Principles
 
-Requirements are the only non-deterministic artifact in this repository. Everything else — code, configuration, infrastructure, deployment, tooling — exists as committed artifacts that keep the system fully reproducible. Humans and AI are bound equally; no system state is established by hand. Where no tool-based script exists, a documented step guide is the last-resort fallback, written so a human or browser-driving agent can execute it deterministically.
+This repository holds every aspect of the system — it is the system's only source of truth. Artifacts must be informed by Requirements and delivered as deterministic, committed artifacts. The test: can the collective artifacts within this repository rebuild or restore every aspect of the system?
 
-**Reproducibility is the test, and the mechanism varies by type: code changes are reversed through version control, with no backout logic inside the application; infrastructure and data changes reconcile to declared state or ship with paired forward/backout scripts; irreversible actions are committed as a record of the act.**
-
-User Stories and Tasks are scoped and measured by the deterministic artifacts they produce: a Story or Task is complete only when those artifacts exist in the repository, pass their tests, and are committed.
-
-The next two sections — **Standard Platform** and **Workflow** — are signal→key lookup tables. Scan signals, pick the key, follow the link; unmatched signals are gaps to flag.
+Detailed mechanisms — intent vs. delivery artifacts, per-type reproducibility, completion definitions — live in [`docs/technology/reproducibility.md`](docs/technology/reproducibility.md) *[TBD]*.
 
 ### Standard Platform
+
+Use the Standard Platform as a tool router. The Signal is the task that needs action; the Key is the technology you must use to deliver on the action; the Detail is the link to how to use the technology.
 
 | Category | Signal | Key | Detail |
 |----------|--------|-----|--------|
@@ -58,7 +56,7 @@ Future capabilities (auth, payments, CMS, richer observability) will be chosen f
 
 ### Workflow
 
-Scan signals top-down; first match is the current phase. Ambiguity means an upstream artifact is incomplete — walk up the chain, resolve, re-enter.
+Use the Workflow to determine where the requested action exists. Scan Signals top-down; the first match is the current stage. The Key names the stage; the Detail is the link to understand that stage. When ambiguity surfaces, walk up the chain to the stage that owns the missing artifact.
 
 | # | Signal | Key | Detail |
 |---|--------|-----|--------|
@@ -77,7 +75,7 @@ Scan signals top-down; first match is the current phase. Ambiguity means an upst
 
 ### Documentation
 
-Requirements, User Stories, and Test Plans live as markdown in a dedicated documentation directory — authored for humans, consumed by agents. Structure and governance: *[TBD]*.
+Requirements, User Stories, and Test Plans live as markdown in a dedicated documentation directory — authored for humans, consumed by agents. These are intent artifacts in natural language; they inform the deterministic delivery artifacts produced downstream. Structure and governance: *[TBD]*.
 
 ## TODO
 
@@ -95,8 +93,9 @@ Outstanding items as of this revision. Each entry points at the placeholder file
 - [`.github/ISSUE_TEMPLATE/`](.github/ISSUE_TEMPLATE/) — intake templates for Scope, Requirement, Story.
 
 **Linked documents still to author**
-- Detailed instructions per Standard Platform tool (one document per key).
-- Detailed instructions per Workflow phase (one document per phase).
+- [`docs/technology/reproducibility.md`](docs/technology/reproducibility.md) — per-type reproducibility mechanisms, intent vs. delivery artifact distinction, Story/Task completion definition, no-backout-in-application rule.
+- Detailed instructions per Standard Platform tool (one document per Key).
+- Detailed instructions per Workflow stage (one document per stage).
 - Documentation directory structure, authoring model, granularity, governance.
 - Engineering Practices elaboration if depth grows.
 
