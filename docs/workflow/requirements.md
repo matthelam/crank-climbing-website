@@ -23,15 +23,6 @@ Every Requirement carries at least one goal-level AC phrased as a user-facing ou
 
 A Requirement document (future location: `intent/requirements/` once the schema lands) with goal-level AC and links to its parent Scope and Elaboration.
 
-## Standard Platform tools
-
-| Tool | When to reach for it at this stage |
-|------|------------------------------------|
-| [GitHub](../technology/github.md) | Intent storage. |
-| [Claude Code](../technology/claude-code.md) · [GitHub Copilot](../technology/github-copilot.md) | Draft goal-level AC; rewrite implementation-shaped AC into outcome-shaped AC. |
-| [LangGraph](../technology/langgraph.md) | Orchestrate Requirement extraction from Elaboration; enforce schema compliance when it lands. |
-| [Microsoft Docs MCP](../technology/microsoft-docs-mcp.md) · [Next.js DevTools MCP](../technology/next-js-devtools-mcp.md) · [Vercel MCP](../technology/vercel-mcp.md) · [Chrome DevTools MCP](../technology/chrome-devtools-mcp.md) | Ground feasibility of requested outcomes before they lock. |
-| [Vercel Analytics](../technology/vercel-analytics.md) | For AC that references measurable user behavior (conversion, retention, engagement), define the custom event or metric the AC will be measured against. |
 
 ## Agent protocol
 

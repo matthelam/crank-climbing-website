@@ -39,19 +39,6 @@ Active watch window: 15–60 minutes for routine changes, longer for high-risk c
 - Speed Insights open for Core Web Vitals regression.
 - Error alerts armed (if configured).
 
-## Standard Platform tools
-
-| Tool | When to reach for it at this stage |
-|------|------------------------------------|
-| [GitHub](../technology/github.md) | Merge action, post-merge commit trail. |
-| [GitHub Actions](../technology/github-actions.md) | Final CI gate on the merge commit. |
-| [Vercel](../technology/vercel.md) | Git integration auto-deploys `main` to Production; `vercel --prod` available for manual/CI paths. |
-| [Vercel runtime observability](../technology/vercel-runtime-observability.md) | Tail runtime logs; watch for new errors post-deploy. |
-| [Vercel Analytics](../technology/vercel-analytics.md) | Confirm user-facing AC continues to land (conversion events, custom events); watch Core Web Vitals via Speed Insights. |
-| [Vercel MCP](../technology/vercel-mcp.md) | Programmatic access to runtime logs and deployment state during watch. |
-| [Chrome DevTools MCP](../technology/chrome-devtools-mcp.md) | Smoke-check Production behavior immediately post-deploy (Lighthouse, performance trace). |
-| [Playwright MCP](../technology/playwright-mcp.md) | Re-run critical E2E flows against Production for post-deploy smoke. |
-| [Microsoft Docs MCP](../technology/microsoft-docs-mcp.md) | If the change touches Microsoft/Azure platform dependencies, verify post-deploy behavior against docs. |
 
 ## Agent protocol
 

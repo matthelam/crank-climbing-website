@@ -31,18 +31,6 @@ Verification notes on the PR (description or dedicated comment) with evidence fo
 - **Technical AC:** link to the test file(s); link to the CI run that passed.
 - **Goal-level AC:** describe the exercise performed against the Preview (or integration environment); link to a recording, screenshot, log snippet, or analytics event that proves the outcome.
 
-## Standard Platform tools
-
-| Tool | When to reach for it at this stage |
-|------|------------------------------------|
-| [GitHub](../technology/github.md) | Hosts the verification notes. |
-| [Vercel](../technology/vercel.md) | Preview deployment is the running system for goal-level AC. |
-| [Vercel runtime observability](../technology/vercel-runtime-observability.md) | Tail runtime logs on the Preview during verification to catch silent errors. |
-| [Chrome DevTools MCP](../technology/chrome-devtools-mcp.md) | Inspect Preview at runtime — DOM, network, console, Lighthouse — for UI-level goal AC. |
-| [Playwright MCP](../technology/playwright-mcp.md) | Scripted verification of user-facing flows against the Preview URL. |
-| [Vercel Analytics](../technology/vercel-analytics.md) | For AC bound to a measurable event (conversion, custom event), fire the event in the Preview and confirm it lands. |
-| [Vercel MCP](../technology/vercel-mcp.md) | Pull Preview runtime logs programmatically; fetch deployment metadata. |
-| [Microsoft Docs MCP](../technology/microsoft-docs-mcp.md) | When AC depends on Microsoft/Azure platform behavior, verify against authoritative docs. |
 
 ## Agent protocol
 

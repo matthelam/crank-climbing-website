@@ -21,15 +21,6 @@ Do not advance from Scope to Requirements without an Elaboration that surfaces r
 
 An Elaboration document linked to the Scope. Captures: risks, assumptions, stakeholders, open questions (each answered or deferred).
 
-## Standard Platform tools
-
-| Tool | When to reach for it at this stage |
-|------|------------------------------------|
-| [GitHub](../technology/github.md) | Host the Elaboration alongside the Scope. |
-| [Claude Code](../technology/claude-code.md) · [GitHub Copilot](../technology/github-copilot.md) | Draft the Elaboration; surface unstated assumptions that the human can confirm or reject. |
-| [LangGraph](../technology/langgraph.md) | Promote additional Tier 2 Insights into the Elaboration when they resolve open questions. |
-| [Microsoft Docs MCP](../technology/microsoft-docs-mcp.md) · [Next.js DevTools MCP](../technology/next-js-devtools-mcp.md) · [Vercel MCP](../technology/vercel-mcp.md) · [Chrome DevTools MCP](../technology/chrome-devtools-mcp.md) | Ground technical feasibility claims — platform limits, framework support, runtime constraints. |
-| [Figma](../technology/figma.md) | If Scope involves user-facing surface, pull design context early; do not commit to UI Requirements without knowing what design source exists. |
 
 ## Agent protocol
 

@@ -21,27 +21,6 @@ Red Test first. No implementation code is written before the Red Test exists and
 
 A failing test file at the deterministic path derived from the Story identifier.
 
-## Test-type routing
-
-| Test scope | Runner |
-|-----------|--------|
-| Non-UI logic (unit, integration) | [Vitest](../technology/vitest.md) |
-| End-to-end user-facing behavior | [Playwright](../technology/playwright.md) |
-| Component (presentation) | Vitest + a testing library until the project adopts a component-E2E convention |
-
-## Standard Platform tools
-
-| Tool | When to reach for it at this stage |
-|------|------------------------------------|
-| [Vitest](../technology/vitest.md) | Primary runner for non-UI logic; watch mode while drafting the test. |
-| [Playwright](../technology/playwright.md) | Primary runner for end-to-end user-facing AC. |
-| [Playwright MCP](../technology/playwright-mcp.md) | Script the browser interaction the E2E test will assert against; use the accessibility snapshot to target stable roles rather than brittle selectors. |
-| [TypeScript](../technology/typescript.md) | Test files are TypeScript; types are part of the AC. |
-| [Next.js DevTools MCP](../technology/next-js-devtools-mcp.md) | Ground test assumptions about framework behavior (routing, data fetching, caching). |
-| [Chrome DevTools MCP](../technology/chrome-devtools-mcp.md) | Inspect the page state a Playwright test should assert against before writing selectors. |
-| [Claude Code](../technology/claude-code.md) · [GitHub Copilot](../technology/github-copilot.md) | Draft the Red Test from the Story's technical AC. |
-| [GitHub](../technology/github.md) | Commit the Red Test alongside the Story reference. |
-
 ## Agent protocol
 
 1. Read the Story's technical AC.

@@ -29,19 +29,10 @@ Anchored in the README:
 
 - **Business Principles:** does the change serve the stated business principle?
 - **Technology Principles:** does the change respect the Signal/Key/Detail grammar, lock-once discipline, and router-table routing?
-- **Engineering Practices:** TDD (red first, recursive), SOLID, TypeScript strict, Vitest for non-UI, Playwright for UI?
+- **Engineering Practices:** TDD (red first, recursive), SOLID, TypeScript strict, test runners routed per Standard Platform?
 - **Lock-once discipline:** does the change edit a locked artifact (Scope, Elaboration, Requirement, Story, Task)? If so, route it to a superseding artifact.
 - **Standard Platform routing:** does the change use the Key from the Standard Platform table for each concern, or does it reach for an off-table tool without justification?
 
-## Standard Platform tools
-
-| Tool | When to reach for it at this stage |
-|------|------------------------------------|
-| [GitHub](../technology/github.md) | Review comments, approval. |
-| [Claude Code](../technology/claude-code.md) | Draft review comments as a second set of eyes; cite principles by reference. Never approves autonomously. |
-| [GitHub Copilot](../technology/github-copilot.md) | Inline review assistance for the reviewer. |
-| [Next.js DevTools MCP](../technology/next-js-devtools-mcp.md) · [Vercel MCP](../technology/vercel-mcp.md) · [Chrome DevTools MCP](../technology/chrome-devtools-mcp.md) | Ground review comments — is this actually how the framework handles this? does the edge runtime support this API? what does the Preview show? |
-| [Microsoft Docs MCP](../technology/microsoft-docs-mcp.md) | Ground review comments touching Microsoft/Azure platform behavior. |
 
 ## Agent protocol
 

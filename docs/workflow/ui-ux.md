@@ -24,17 +24,6 @@ Do not write UI code without a locked design source. A hand-drawn sketch, a stal
 
 A Figma frame (or equivalent locked design) plus a design Story linking the Requirement to the design source. If v0 scaffolding was used, the scaffold is referenced from the design Story.
 
-## Standard Platform tools
-
-| Tool | When to reach for it at this stage |
-|------|------------------------------------|
-| [Figma](../technology/figma.md) | Design source of truth. Use Dev Mode for handoff. |
-| Figma MCP (`https://mcp.figma.com/mcp`) — covered on [figma.md](../technology/figma.md) | Agents pull design tokens, component structure, and copy directly from Figma via MCP rather than screenshots. |
-| [v0](../technology/v0.md) | Generate Next.js + Tailwind component scaffolds from a Figma frame or a prompt; never as a substitute for the Figma source. |
-| [Tailwind CSS](../technology/tailwind.md) | Styling primitive used by generated and hand-written components. |
-| [Radix via shadcn/ui](../technology/radix-shadcn.md) | Composable primitives (dialog, menu, tooltip) referenced by generated components. |
-| [GitHub](../technology/github.md) | Store the design Story and the links to Figma. |
-| [Claude Code](../technology/claude-code.md) | Draft the design Story; summarize Figma content into text an agent can consume. |
 
 ## Agent protocol
 

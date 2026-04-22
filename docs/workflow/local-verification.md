@@ -30,18 +30,6 @@ No new artifact — but a guarantee that CI will not surface a preventable failu
 
 Earlier gates are faster and catch cheaper classes of error; later gates are slower and catch shipping-time failures. Ordering fail-fast minimizes iteration time.
 
-## Standard Platform tools
-
-| Tool | When to reach for it at this stage |
-|------|------------------------------------|
-| [Vitest](../technology/vitest.md) | Rerun unit/integration suite. |
-| [Playwright](../technology/playwright.md) | Rerun E2E suite. |
-| [TypeScript strict](../technology/typescript.md) | `tsc --noEmit` — zero errors required. |
-| [Next.js](../technology/next-js.md) | `next build` — must succeed. |
-| [npm](../technology/npm.md) | Runs the scripts (`npm test`, `npm run typecheck`, `npm run lint`, `npm run build`). |
-| [Next.js DevTools MCP](../technology/next-js-devtools-mcp.md) | Resolve build-time questions (cache-components, module resolution) when the build fails unexpectedly. |
-
-Lint tool: the Standard Platform does not yet enumerate an ESLint row. Use the project's configured linter; add a Standard Platform row if lint configuration becomes a recurring concern.
 
 ## Agent protocol
 

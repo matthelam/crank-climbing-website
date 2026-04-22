@@ -23,16 +23,6 @@ Every Story carries technical AC testable by a single named test file. Every Tas
 
 Stories (future: `intent/stories/`) with technical AC. Tasks (future: `intent/tasks/`). Each linked to its parent. Each traceable upward to Requirement → Elaboration → Scope.
 
-## Standard Platform tools
-
-| Tool | When to reach for it at this stage |
-|------|------------------------------------|
-| [GitHub](../technology/github.md) | Intent storage. |
-| [Claude Code](../technology/claude-code.md) | Primary decomposer: Requirements → Stories, Stories → Tasks. Enforces the lock-once rule. |
-| [LangGraph](../technology/langgraph.md) | Orchestrates decomposition ceremonies; enforces schema compliance on emitted Stories and Tasks. |
-| [GitHub Copilot](../technology/github-copilot.md) | Inline decomposition assistance in the IDE. |
-| [Microsoft Docs MCP](../technology/microsoft-docs-mcp.md) · [Next.js DevTools MCP](../technology/next-js-devtools-mcp.md) · [Vercel MCP](../technology/vercel-mcp.md) | Ground technical feasibility; inform technical AC phrasing (e.g., what data-fetching API the Story implies). |
-| Figma MCP — covered on [figma.md](../technology/figma.md) | When a Story touches UI, reference the design source from the technical AC. |
 
 ## Agent protocol
 

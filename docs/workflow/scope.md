@@ -21,15 +21,6 @@ Do not author Elaboration, Requirements, Stories, or code until a Scope document
 
 A Scope document. Until the `intent/` schema lands, it lives as a markdown document (issue body, discussion, or dedicated file) linked from the initiating issue or PR.
 
-## Standard Platform tools
-
-| Tool | When to reach for it at this stage |
-|------|------------------------------------|
-| [GitHub](../technology/github.md) | Host the Scope document as an issue, discussion, or markdown file. |
-| [Claude Code](../technology/claude-code.md) | Assist in drafting the Scope; never lock it unilaterally. |
-| [GitHub Copilot](../technology/github-copilot.md) | Inline authoring assistance inside the IDE. |
-| [LangGraph](../technology/langgraph.md) | Orchestrate the extraction ceremony that promotes Tier 2 Insights (outside this repo) into a Tier 3 Scope (inside this repo). |
-| [Microsoft Docs MCP](../technology/microsoft-docs-mcp.md) · [Next.js DevTools MCP](../technology/next-js-devtools-mcp.md) · [Vercel MCP](../technology/vercel-mcp.md) | Ground feasibility claims during scoping — can this run on this platform, under these constraints? |
 
 ## Agent protocol
 

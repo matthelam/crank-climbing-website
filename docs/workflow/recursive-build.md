@@ -23,25 +23,6 @@ Red → Green → Refactor, applied recursively. Refactor only under a green tes
 
 The implementation code that turns the Red Test green, plus any sub-unit tests written along the way.
 
-## Standard Platform tools
-
-| Tool | When to reach for it at this stage |
-|------|------------------------------------|
-| [Next.js](../technology/next-js.md) | Application framework: routes, pages, data fetching, rendering. |
-| [TypeScript](../technology/typescript.md) | Types the contract between units; strict mode catches drift. |
-| [Tailwind CSS](../technology/tailwind.md) | Styling primitive for UI units. |
-| [Radix via shadcn/ui](../technology/radix-shadcn.md) | Composable primitives (dialog, menu, tooltip) when a Story needs them. |
-| [v0](../technology/v0.md) | Accelerate UI component scaffolds from the locked design Story (Stage 4). |
-| [npm](../technology/npm.md) | Dependency installs; `npm ci` for reproducible installs during build. |
-| [Vitest](../technology/vitest.md) | Watch mode during build; fast feedback on non-UI units. |
-| [Playwright](../technology/playwright.md) | Run the E2E Red Test locally; re-run on each iteration. |
-| [Next.js DevTools MCP](../technology/next-js-devtools-mcp.md) | Resolve framework questions that arise mid-build (routing, caching, data fetching semantics). |
-| [Chrome DevTools MCP](../technology/chrome-devtools-mcp.md) | Inspect the running page — DOM, network, console — when observed behavior does not match the test's expectation. |
-| [Playwright MCP](../technology/playwright-mcp.md) | Scripted browser interactions for manual verification of a UI unit before committing. |
-| [Vercel MCP](../technology/vercel-mcp.md) | Check Preview deployment state for builds that depend on Vercel runtime behavior. |
-| [Claude Code](../technology/claude-code.md) | Primary author of implementation code. |
-| [GitHub Copilot](../technology/github-copilot.md) | Inline authoring assistance. |
-| [Microsoft Docs MCP](../technology/microsoft-docs-mcp.md) | Ground Microsoft/Azure APIs when the build touches them. |
 
 ## Agent protocol
 

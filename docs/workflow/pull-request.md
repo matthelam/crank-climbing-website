@@ -34,15 +34,6 @@ An open PR with:
 - **Test evidence:** which tests turned green; which existed before vs. added in this PR.
 - **Preview deployment:** link (Vercel auto-comments this).
 
-## Standard Platform tools
-
-| Tool | When to reach for it at this stage |
-|------|------------------------------------|
-| [GitHub](../technology/github.md) | PR creation, branch management, PR body. |
-| [GitHub Actions](../technology/github-actions.md) | CI — runs tests, type-check, lint, build on the PR head. |
-| [Claude Code](../technology/claude-code.md) | Authors PR title and body; summarizes the diff; links to Story. |
-| [GitHub Copilot](../technology/github-copilot.md) | Inline PR authoring assistance. |
-| [Vercel](../technology/vercel.md) | Auto-deploys the PR as a Preview (Git integration); the Preview URL is the handoff signal to Stage 10. |
 
 ## Agent protocol
 
