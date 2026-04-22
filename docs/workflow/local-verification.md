@@ -1,14 +1,53 @@
 # Stage 8: Local Verification
 
-**Status: *[TBD]*** — scaffolding only.
-
 Detail page for the Workflow **Local Verification** row — Signal: "All tests green; type-check / lint / build not run clean".
 
-## Planned contents
+## Purpose
 
-- Running type-check, lint, and build locally before opening a PR.
-- Ordering: tests first (already green at entry), then type-check, then lint, then build.
-- What counts as "clean" — zero errors across every gate, not just the test runner.
-- Exit condition: every local gate clean — advance to [Stage 9: Pull Request](pull-request.md).
+Local Verification catches what the test runner does not. Tests assert behavior; **type-check** asserts contracts between units; **lint** asserts style and a class of bug patterns; **build** asserts that the whole thing can be packaged and shipped. A Story can be green on tests and still be broken at any of the other three gates.
 
-This document will elaborate the above into a concrete protocol. Until then, apply the spirit: CI is not the first place type errors, lint violations, or build failures should surface.
+This stage exists because CI should never be the first place a type error, lint violation, or build failure surfaces. If the author saw it first, they fix it before opening the PR. If CI sees it first, reviewers and pipelines pay the cost, and the feedback loop is measured in minutes instead of seconds.
+
+## Enter / Exit
+
+- **Enter when:** All tests green; type-check, lint, or build has not been run clean locally.
+- **Exit when:** Every local gate runs clean — tests green, type-check clean, lint clean, build succeeds.
+
+## Rule
+
+Do not open a PR without a clean local pass of tests, type-check, lint, and build. Any gate that is red locally is a red gate waiting to surface in CI; fix it before the handoff.
+
+## Artifact produced
+
+No new artifact — but a guarantee that CI will not surface a preventable failure.
+
+## Suggested ordering (fail-fast)
+
+1. Tests (should already be green at entry; rerun as sanity).
+2. Type-check.
+3. Lint.
+4. Build.
+
+Earlier gates are faster and catch cheaper classes of error; later gates are slower and catch shipping-time failures. Ordering fail-fast minimizes iteration time.
+
+## Standard Platform tools
+
+| Tool | When to reach for it at this stage |
+|------|------------------------------------|
+| [Vitest](../technology/vitest.md) | Rerun unit/integration suite. |
+| [Playwright](../technology/playwright.md) | Rerun E2E suite. |
+| [TypeScript strict](../technology/typescript.md) | `tsc --noEmit` — zero errors required. |
+| [Next.js](../technology/next-js.md) | `next build` — must succeed. |
+| [npm](../technology/npm.md) | Runs the scripts (`npm test`, `npm run typecheck`, `npm run lint`, `npm run build`). |
+| [Next.js DevTools MCP](../technology/next-js-devtools-mcp.md) | Resolve build-time questions (cache-components, module resolution) when the build fails unexpectedly. |
+
+Lint tool: the Standard Platform does not yet enumerate an ESLint row. Use the project's configured linter; add a Standard Platform row if lint configuration becomes a recurring concern.
+
+## Agent protocol
+
+1. Run the test suite. Confirm green.
+2. Run type-check. Confirm zero errors.
+3. Run lint. Confirm zero errors.
+4. Run build. Confirm success.
+5. If any gate fails, return to [Stage 7](recursive-build.md) with the gate failure as the new Red signal.
+6. Only when every gate is clean, advance to [Stage 9: Pull Request](pull-request.md).

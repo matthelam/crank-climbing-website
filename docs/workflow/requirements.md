@@ -1,13 +1,43 @@
 # Stage 3: Requirements
 
-**Status: *[TBD]*** — scaffolding only.
-
 Detail page for the Workflow **Requirements** row — Signal: "Elaboration exists; no Requirement with goal-level AC".
 
-## Planned contents
+## Purpose
 
-- Writing goal-level Acceptance Criteria (user-facing outcomes, not implementation).
-- Linking each Requirement to the Scope and Elaboration it descends from.
-- Exit condition: a Requirement with goal-level AC exists — advance to [Stage 4: UI/UX](ui-ux.md) if UI is involved, otherwise [Stage 5: Stories + Tasks](stories-tasks.md).
+Requirements convert an Elaborated Scope into testable outcomes. A Requirement carries **goal-level Acceptance Criteria** — outcome-shaped, not implementation-shaped. The goal-level AC is what the user wants, independent of how it is built.
 
-This document will elaborate the above into a concrete protocol. Until then, apply the spirit: a Requirement without goal-level AC is not a Requirement — it is a wish.
+The asymmetry matters: a Requirement with implementation-shaped AC ("use React Context for cart state") couples the Requirement to a Story. A Requirement with outcome-shaped AC ("cart state persists across page refresh") leaves Stories free to choose technical approach. Agents generating code from Requirements must see outcomes, not implementations — otherwise Stage 5's decomposition has nothing left to decide.
+
+This is also the last stage before the "what" is locked and the "how" enters the workflow. Every Requirement that passes here constrains every Story, Test, and line of code downstream.
+
+## Enter / Exit
+
+- **Enter when:** Elaboration exists; no Requirement with goal-level AC exists for it.
+- **Exit when:** A Requirement exists with at least one goal-level AC — user-facing and outcome-shaped — linked to its parent Scope and Elaboration.
+
+## Rule
+
+Every Requirement carries at least one goal-level AC phrased as a user-facing outcome. Implementation-shaped AC is rejected and returned for rewriting. A Requirement without testable outcomes is a wish, not a Requirement.
+
+## Artifact produced
+
+A Requirement document (future location: `intent/requirements/` once the schema lands) with goal-level AC and links to its parent Scope and Elaboration.
+
+## Standard Platform tools
+
+| Tool | When to reach for it at this stage |
+|------|------------------------------------|
+| [GitHub](../technology/github.md) | Intent storage. |
+| [Claude Code](../technology/claude-code.md) · [GitHub Copilot](../technology/github-copilot.md) | Draft goal-level AC; rewrite implementation-shaped AC into outcome-shaped AC. |
+| [LangGraph](../technology/langgraph.md) | Orchestrate Requirement extraction from Elaboration; enforce schema compliance when it lands. |
+| [Microsoft Docs MCP](../technology/microsoft-docs-mcp.md) · [Next.js DevTools MCP](../technology/next-js-devtools-mcp.md) · [Vercel MCP](../technology/vercel-mcp.md) · [Chrome DevTools MCP](../technology/chrome-devtools-mcp.md) | Ground feasibility of requested outcomes before they lock. |
+| [Vercel Analytics](../technology/vercel-analytics.md) | For AC that references measurable user behavior (conversion, retention, engagement), define the custom event or metric the AC will be measured against. |
+
+## Agent protocol
+
+1. Read the Elaboration. Identify candidate outcomes worth asserting.
+2. Draft outcome-shaped AC for each candidate. Reject any draft that names a library, framework API, component, or data structure.
+3. For measurable AC, link it to the Vercel Analytics event (or metric) that will verify it.
+4. Link the Requirement to its parent Scope and Elaboration.
+5. Lock once the human confirms. Changes produce superseding Requirements.
+6. Route: if UI is involved, advance to [Stage 4: UI/UX](ui-ux.md); otherwise advance directly to [Stage 5: Stories + Tasks](stories-tasks.md).

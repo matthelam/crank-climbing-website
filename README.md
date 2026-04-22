@@ -130,7 +130,6 @@ Outstanding items as of this revision. Each entry points at the placeholder file
 - Seed documents under [`intent/`](intent/) — first Feature, Story, and Task once authoring governance is settled.
 - Extraction-ceremony graph under [`orchestration/graphs/`](orchestration/) — a LangGraph state machine governing how Tier 2 Insights promote into Tier 3 intent artifacts. First concrete consumer of the Cognitive Profile Compiler's output.
 - Crank agent roster under [`orchestration/profiles/`](orchestration/) — cognitive profiles per altitude band (Executor through Principal) and per concern lens (Security, Performance, Accessibility).
-- Detailed instructions per Workflow stage (one document per stage) — stubs scaffolded under [`docs/workflow/`](docs/workflow/); bodies remain *[TBD]*.
 - Engineering Practices elaboration if depth grows.
 
 **Parked concepts (introduce when the project needs them)**
