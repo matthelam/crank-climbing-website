@@ -61,18 +61,18 @@ Use the Workflow to determine where the requested action exists. Scan Signals to
 
 | # | Signal | Key | Detail |
 |---|--------|-----|--------|
-| 1 | No Scope document exists | **Scope** | *[TBD]* |
-| 2 | Scope exists; no Elaboration | **Elaboration** | *[TBD]* |
-| 3 | Elaboration exists; no Requirement with goal-level AC | **Requirements** | *[TBD]* |
-| 4 | Requirement needs UI; no design Story or Figma source | **UI/UX** *(conditional)* | *[TBD]* |
-| 5 | Requirement exists; no decomposed Stories with technical AC | **Stories + Tasks** | *[TBD]* |
-| 6 | Story exists; its named test file absent | **Red Tests** | *[TBD]* |
-| 7 | Test exists and fails; named artifact absent or incomplete | **Recursive Build** | *[TBD]* |
-| 8 | All tests green; type-check / lint / build not run clean | **Local Verification** | *[TBD]* |
-| 9 | Clean locally; no PR open for this branch | **Pull Request** | *[TBD]* |
-| 10 | PR open with green CI; no verification notes referencing both AC | **Dual-AC Verification** | *[TBD]* |
-| 11 | PR verified; not yet approved | **Review** | *[TBD]* |
-| 12 | PR approved; not merged / observability not resumed | **Merge + Deploy + Observe** | *[TBD]* |
+| 1 | No Scope document exists | **Scope** | [`docs/workflow/scope.md`](docs/workflow/scope.md) |
+| 2 | Scope exists; no Elaboration | **Elaboration** | [`docs/workflow/elaboration.md`](docs/workflow/elaboration.md) |
+| 3 | Elaboration exists; no Requirement with goal-level AC | **Requirements** | [`docs/workflow/requirements.md`](docs/workflow/requirements.md) |
+| 4 | Requirement needs UI; no design Story or Figma source | **UI/UX** *(conditional)* | [`docs/workflow/ui-ux.md`](docs/workflow/ui-ux.md) |
+| 5 | Requirement exists; no decomposed Stories with technical AC | **Stories + Tasks** | [`docs/workflow/stories-tasks.md`](docs/workflow/stories-tasks.md) |
+| 6 | Story exists; its named test file absent | **Red Tests** | [`docs/workflow/red-tests.md`](docs/workflow/red-tests.md) |
+| 7 | Test exists and fails; named artifact absent or incomplete | **Recursive Build** | [`docs/workflow/recursive-build.md`](docs/workflow/recursive-build.md) |
+| 8 | All tests green; type-check / lint / build not run clean | **Local Verification** | [`docs/workflow/local-verification.md`](docs/workflow/local-verification.md) |
+| 9 | Clean locally; no PR open for this branch | **Pull Request** | [`docs/workflow/pull-request.md`](docs/workflow/pull-request.md) |
+| 10 | PR open with green CI; no verification notes referencing both AC | **Dual-AC Verification** | [`docs/workflow/dual-ac-verification.md`](docs/workflow/dual-ac-verification.md) |
+| 11 | PR verified; not yet approved | **Review** | [`docs/workflow/review.md`](docs/workflow/review.md) |
+| 12 | PR approved; not merged / observability not resumed | **Merge + Deploy + Observe** | [`docs/workflow/merge-deploy-observe.md`](docs/workflow/merge-deploy-observe.md) |
 
 ### Documentation
 
@@ -130,7 +130,7 @@ Outstanding items as of this revision. Each entry points at the placeholder file
 - Seed documents under [`intent/`](intent/) — first Feature, Story, and Task once authoring governance is settled.
 - Extraction-ceremony graph under [`orchestration/graphs/`](orchestration/) — a LangGraph state machine governing how Tier 2 Insights promote into Tier 3 intent artifacts. First concrete consumer of the Cognitive Profile Compiler's output.
 - Crank agent roster under [`orchestration/profiles/`](orchestration/) — cognitive profiles per altitude band (Executor through Principal) and per concern lens (Security, Performance, Accessibility).
-- Detailed instructions per Workflow stage (one document per stage).
+- Detailed instructions per Workflow stage (one document per stage) — stubs scaffolded under [`docs/workflow/`](docs/workflow/); bodies remain *[TBD]*.
 - Engineering Practices elaboration if depth grows.
 
 **Parked concepts (introduce when the project needs them)**
