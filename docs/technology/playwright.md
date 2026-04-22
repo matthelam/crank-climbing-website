@@ -1,12 +1,20 @@
 # Playwright
 
-**Status: *[TBD]*** — scaffolding only.
+**Status:** Resource ladder populated from official Playwright (Microsoft) docs as of 2026-04-22; body remains *[TBD]*.
 
 Detail page for the Standard Platform **Playwright** row — Signal: "Verifying UI behaviour end-to-end".
 
 ## Rule
 
-*[TBD]* — generalized rule for when and how **Playwright** is used in this project.
+Use Playwright as the sole end-to-end test runner for this Next.js repo. Verify behaviour through user-visible output (rendered DOM, navigation, network) rather than implementation details. In CI, run on Linux with only the browsers under test installed.
+
+## Common patterns
+
+- Web-first auto-retrying assertions via `expect(locator).toBeVisible()` — [Playwright docs](https://playwright.dev/docs/best-practices#use-web-first-assertions)
+- User-facing locators (`getByRole`, `getByLabel`, `getByText`) over CSS/XPath — [Playwright docs](https://playwright.dev/docs/locators)
+- Test isolation with a fresh `BrowserContext` per test (default behaviour) — [Playwright docs](https://playwright.dev/docs/browser-contexts)
+- Trace Viewer on first retry for CI debugging (`trace: 'on-first-retry'`) — [Playwright docs](https://playwright.dev/docs/trace-viewer-intro)
+- Sharding plus CI-only browser installs for fast pipelines — [Playwright docs](https://playwright.dev/docs/test-sharding)
 
 ## Resource ladder
 
@@ -19,9 +27,9 @@ Agents resolve "how to use this tool" in tier order; stop at the first tier that
 
 | # | Resource | Version | Pointer |
 |---|----------|---------|---------|
-| 1 | *[TBD]* | *[TBD]* | *[TBD]* |
-| 2 | `playwright` (via `npx playwright`) | *[TBD]* | *[TBD]* |
-| 3 | *[TBD]* | *[TBD]* | *[TBD]* |
+| 1 | `@playwright/cli` (Microsoft-published skill for coding agents; `playwright-cli install --skills` pulls the richer skill bundle) | Tracks Playwright 1.59.x | [playwright.dev/docs/getting-started-cli](https://playwright.dev/docs/getting-started-cli) |
+| 2 | `playwright` (via `npx playwright`) | 1.59.1 | [playwright.dev/docs/test-cli](https://playwright.dev/docs/test-cli) |
+| 3 | None — covered by the Playwright MCP row separately. | N/A | see [playwright-mcp.md](playwright-mcp.md) |
 | 4 | see below | — | — |
 
 ## Custom rules

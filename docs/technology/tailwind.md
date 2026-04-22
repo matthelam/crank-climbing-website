@@ -1,12 +1,20 @@
 # Tailwind CSS
 
-**Status: *[TBD]*** — scaffolding only.
+**Status:** Resource ladder populated from official Tailwind Labs docs as of 2026-04-22; body remains *[TBD]*.
 
 Detail page for the Standard Platform **Tailwind CSS** row — Signal: "Styling an element".
 
 ## Rule
 
-*[TBD]* — generalized rule for when and how **Tailwind CSS** is used in this project.
+For a greenfield Next.js app, install Tailwind CSS v4 via the official `@tailwindcss/postcss` plugin and author styles using utility classes directly in JSX (`className="..."`). Configuration lives in CSS via `@import "tailwindcss"` and `@theme`; do **not** create a `tailwind.config.js` — that is the deprecated v3 pattern.
+
+## Common patterns
+
+- Install with the PostCSS plugin for Next.js — [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs)
+- Style with utility classes directly on elements — [Tailwind docs](https://tailwindcss.com/docs/styling-with-utility-classes)
+- Responsive design via breakpoint prefixes (`md:`, `lg:`) — [Tailwind docs](https://tailwindcss.com/docs/responsive-design)
+- Interactive state variants (`hover:`, `focus:`) stacked with other variants — [Tailwind docs](https://tailwindcss.com/docs/hover-focus-and-other-states)
+- Dark mode via the `dark:` variant — [Tailwind docs](https://tailwindcss.com/docs/dark-mode)
 
 ## Resource ladder
 
@@ -19,9 +27,9 @@ Agents resolve "how to use this tool" in tier order; stop at the first tier that
 
 | # | Resource | Version | Pointer |
 |---|----------|---------|---------|
-| 1 | *[TBD]* | *[TBD]* | *[TBD]* |
-| 2 | `tailwindcss` | *[TBD]* | *[TBD]* |
-| 3 | *[TBD]* | *[TBD]* | *[TBD]* |
+| 1 | None — Tailwind Labs has not published an official agent skill package. Community request tracked in discussion #19594. | N/A | [tailwindlabs/tailwindcss#19594](https://github.com/tailwindlabs/tailwindcss/discussions/19594) |
+| 2 | `@tailwindcss/cli` | 4.2.4 | [tailwindcss.com/docs/installation/tailwind-cli](https://tailwindcss.com/docs/installation/tailwind-cli) |
+| 3 | None — no Tailwind Labs-published MCP server as of 2026-04-22. Community MCP discussion at #19737. | N/A | [tailwindlabs/tailwindcss#19737](https://github.com/tailwindlabs/tailwindcss/discussions/19737) |
 | 4 | see below | — | — |
 
 ## Custom rules

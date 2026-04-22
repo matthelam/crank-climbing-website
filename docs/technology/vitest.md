@@ -1,12 +1,20 @@
 # Vitest
 
-**Status: *[TBD]*** — scaffolding only.
+**Status:** Resource ladder populated from official Vitest docs as of 2026-04-22; body remains *[TBD]*.
 
 Detail page for the Standard Platform **Vitest** row — Signal: "Verifying non-UI logic".
 
 ## Rule
 
-*[TBD]* — generalized rule for when and how **Vitest** is used in this project.
+Use Vitest to verify non-UI logic — utilities, server helpers, pure functions, API handlers. Vitest is the Vite-native testing framework with out-of-the-box TypeScript/JSX support, Jest-compatible `expect`/mocking APIs, and instant watch mode (HMR for tests).
+
+## Common patterns
+
+- Writing tests with `describe` / `it` / `expect` — [Vitest docs](https://vitest.dev/guide/)
+- Mocking modules, timers, env, and globals via `vi` — [Vitest docs](https://vitest.dev/guide/mocking)
+- Native code coverage via `v8` (default) or `istanbul` — [Vitest docs](https://vitest.dev/guide/coverage)
+- CLI: `vitest` (watch in dev), `vitest run` (CI single pass), `vitest related` — [Vitest CLI](https://vitest.dev/guide/cli)
+- Vitest 4.1+ ships a built-in `agent` reporter, auto-enabled when an AI coding agent is detected — [Vitest 4.1 release](https://vitest.dev/blog/vitest-4-1.html)
 
 ## Resource ladder
 
@@ -19,9 +27,9 @@ Agents resolve "how to use this tool" in tier order; stop at the first tier that
 
 | # | Resource | Version | Pointer |
 |---|----------|---------|---------|
-| 1 | *[TBD]* | *[TBD]* | *[TBD]* |
-| 2 | `vitest` | *[TBD]* | *[TBD]* |
-| 3 | *[TBD]* | *[TBD]* | *[TBD]* |
+| 1 | None — no standalone skill package. Vitest 4.1 ships a built-in `agent` reporter inside the core package. | N/A | [Vitest 4.1 release notes](https://vitest.dev/blog/vitest-4-1.html) |
+| 2 | `vitest` | 4.1.5 | [vitest.dev/guide/cli](https://vitest.dev/guide/cli) |
+| 3 | None — only an open feature request (`vitest-dev/vitest#8411`). | N/A | [vitest-dev/vitest#8411](https://github.com/vitest-dev/vitest/issues/8411) |
 | 4 | see below | — | — |
 
 ## Custom rules

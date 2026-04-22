@@ -1,12 +1,20 @@
 # Radix via shadcn/ui
 
-**Status: *[TBD]*** — scaffolding only.
+**Status:** Resource ladder populated from official shadcn/ui and Radix docs as of 2026-04-22; body remains *[TBD]*.
 
 Detail page for the Standard Platform **Radix** via **shadcn/ui** row — Signal: "Composing primitives (dialog, menu, tooltip, etc.)".
 
 ## Rule
 
-*[TBD]* — generalized rule for when and how **Radix via shadcn/ui** is used in this project.
+Adopt shadcn/ui as the copy-in component layer on top of Radix Primitives. `shadcn@latest init` scaffolds `components.json`, and every primitive (dialog, dropdown menu, tooltip, etc.) is copied into the repo as source you own and modify — not imported from a package. For a greenfield Next.js repo, use the official Next.js template: `shadcn@latest init -t next`.
+
+## Common patterns
+
+- Install into Next.js via `pnpm dlx shadcn@latest init -t next` — [shadcn/ui docs](https://ui.shadcn.com/docs/installation/next)
+- Add composable Radix-backed primitives on demand (`shadcn@latest add dialog`) — [shadcn CLI docs](https://ui.shadcn.com/docs/cli)
+- Dialog / Alert Dialog wrapping Radix Dialog — [shadcn/ui Dialog](https://ui.shadcn.com/docs/components/dialog)
+- Dropdown Menu wrapping Radix Dropdown Menu — [shadcn/ui Dropdown Menu](https://ui.shadcn.com/docs/components/dropdown-menu)
+- Tooltip / Popover wrapping Radix primitives — [Radix Primitives docs](https://www.radix-ui.com/primitives/docs)
 
 ## Resource ladder
 
@@ -19,9 +27,9 @@ Agents resolve "how to use this tool" in tier order; stop at the first tier that
 
 | # | Resource | Version | Pointer |
 |---|----------|---------|---------|
-| 1 | *[TBD]* | *[TBD]* | *[TBD]* |
-| 2 | `shadcn` (for copy-in of components) | *[TBD]* | *[TBD]* |
-| 3 | *[TBD]* | *[TBD]* | *[TBD]* |
+| 1 | `shadcn/skills` (official AI-agent skill bundle; ships with shadcn CLI v4, March 2026) | Tracks `shadcn` CLI v4 | [ui.shadcn.com/docs/skills](https://ui.shadcn.com/docs/skills) |
+| 2 | `shadcn` (npm package `shadcn`; `shadcn-ui` is the deprecated legacy name) | 4.3.1 | [ui.shadcn.com/docs/cli](https://ui.shadcn.com/docs/cli) |
+| 3 | shadcn Registry MCP (ships with the shadcn CLI; "Built by shadcn at Vercel") | Bundled with `shadcn@4.3.1` | [ui.shadcn.com/docs/mcp](https://ui.shadcn.com/docs/mcp) |
 | 4 | see below | — | — |
 
 ## Custom rules

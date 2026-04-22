@@ -1,12 +1,20 @@
 # npm
 
-**Status: *[TBD]*** — scaffolding only.
+**Status:** Resource ladder populated from official npm docs as of 2026-04-22; body remains *[TBD]*.
 
 Detail page for the Standard Platform **npm** row — Signal: "Installing and managing dependencies".
 
 ## Rule
 
-*[TBD]* — generalized rule for when and how **npm** is used in this project.
+Commit `package-lock.json` and use `npm ci` in CI / deploy for reproducible installs. Keep caret-range dependencies in `package.json` (pinning is the lockfile's job). Treat `npm audit` findings at high or critical severity as release blockers.
+
+## Common patterns
+
+- Commit `package-lock.json` for reproducible trees across team and CI — [npm docs](https://docs.npmjs.com/cli/v11/configuring-npm/package-lock-json/)
+- Use `npm ci` in CI for strict, lockfile-only installs — [npm docs](https://docs.npmjs.com/cli/v11/commands/npm-ci/)
+- Express dependency ranges with semver caret (`^`) / tilde (`~`) in `package.json` — [npm docs](https://docs.npmjs.com/about-semantic-versioning/)
+- Run `npm audit` (auto-runs on install) and `npm audit fix` for vulnerability remediation — [npm docs](https://docs.npmjs.com/cli/v11/commands/npm-audit/)
+- Track drift with `npm outdated` before upgrades — [npm docs](https://docs.npmjs.com/cli/v11/commands/npm-outdated/)
 
 ## Resource ladder
 
@@ -19,9 +27,9 @@ Agents resolve "how to use this tool" in tier order; stop at the first tier that
 
 | # | Resource | Version | Pointer |
 |---|----------|---------|---------|
-| 1 | *[TBD]* | *[TBD]* | *[TBD]* |
-| 2 | `npm` (the tool itself is the CLI, bundled with Node.js) | *[TBD]* | *[TBD]* |
-| 3 | *[TBD]* | *[TBD]* | *[TBD]* |
+| 1 | None — no npm-published skill package under the `npm` org. | N/A | N/A |
+| 2 | `npm` (bundled with Node.js; also distributed separately) | 11.12.1 (2026-03-26; legacy line 10.9.7 maintained) | [docs.npmjs.com/cli/v11/commands/npm](https://docs.npmjs.com/cli/v11/commands/npm/) · [releases](https://github.com/npm/cli/releases) |
+| 3 | None — no MCP server published by the `npm` GitHub org or docs.npmjs.com as of 2026-04-22. | N/A | N/A |
 | 4 | see below | — | — |
 
 ## Custom rules
