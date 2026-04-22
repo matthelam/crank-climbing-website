@@ -4,12 +4,26 @@
 
 Detail page for the Standard Platform **LangGraph** row — Signal: "Orchestrating multi-step agent workflows (extraction ceremonies, verification gates)".
 
-## Planned contents
+## Rule
 
-- Pattern A boundary — LangGraph owns state machines; **Claude Code** owns execution.
-- Where committed graph definitions live: [`../../orchestration/`](../../orchestration/).
-- First target graph: the extraction ceremony promoting Tier 2 Insights into Tier 3 intent.
-- Interaction with the Cognitive Profile Compiler (separate repository) — how compiled node configs flow in.
-- Persistence layer placement — intermediate state lives outside the repo.
+*[TBD]* — generalized rule for when and how **LangGraph** is used in this project.
 
-Body to be elaborated once the first graph is authored.
+## Resource ladder
+
+Agents resolve "how to use this tool" in tier order; stop at the first tier that answers the question. Tiers that do not apply for this tool are marked N/A.
+
+- **Tier 1 — Official skill.** Vendor-endorsed skill package, scoped to this project.
+- **Tier 2 — Official CLI.** Versioned binary with `--help` and vendor docs.
+- **Tier 3 — Official MCP documentation.** Vendor MCP server, pinned to the version in use.
+- **Tier 4 — Custom rules.** Project-specific guidance (below), used only when Tiers 1–3 cannot answer.
+
+| # | Resource | Version | Pointer |
+|---|----------|---------|---------|
+| 1 | *[TBD]* | *[TBD]* | *[TBD]* |
+| 2 | `langgraph` (Python package `langgraph-cli`) | *[TBD]* | *[TBD]* |
+| 3 | *[TBD]* | *[TBD]* | *[TBD]* |
+| 4 | see below | — | — |
+
+## Custom rules
+
+*[TBD]* — none yet. Add only when Tiers 1–3 cannot answer a question that recurs in this project.

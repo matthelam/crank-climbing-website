@@ -4,11 +4,26 @@
 
 Detail page for the Standard Platform **npm** row — Signal: "Installing and managing dependencies".
 
-## Planned contents
+## Rule
 
-- Registry, auth, and lockfile policy.
-- Versioning strategy — ranges versus pins for different dependency classes.
-- Security posture — audit cadence, automated vulnerability scanning.
-- Scripts convention — what `package.json` scripts exist and what each one guarantees.
+*[TBD]* — generalized rule for when and how **npm** is used in this project.
 
-Body to be elaborated once `package.json` lands.
+## Resource ladder
+
+Agents resolve "how to use this tool" in tier order; stop at the first tier that answers the question. Tiers that do not apply for this tool are marked N/A.
+
+- **Tier 1 — Official skill.** Vendor-endorsed skill package, scoped to this project.
+- **Tier 2 — Official CLI.** Versioned binary with `--help` and vendor docs.
+- **Tier 3 — Official MCP documentation.** Vendor MCP server, pinned to the version in use.
+- **Tier 4 — Custom rules.** Project-specific guidance (below), used only when Tiers 1–3 cannot answer.
+
+| # | Resource | Version | Pointer |
+|---|----------|---------|---------|
+| 1 | *[TBD]* | *[TBD]* | *[TBD]* |
+| 2 | `npm` (the tool itself is the CLI, bundled with Node.js) | *[TBD]* | *[TBD]* |
+| 3 | *[TBD]* | *[TBD]* | *[TBD]* |
+| 4 | see below | — | — |
+
+## Custom rules
+
+*[TBD]* — none yet. Add only when Tiers 1–3 cannot answer a question that recurs in this project.

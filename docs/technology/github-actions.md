@@ -4,11 +4,26 @@
 
 Detail page for the Standard Platform **GitHub Actions** row — Signal: "Running CI on every push".
 
-## Planned contents
+## Rule
 
-- Workflows under `.github/workflows/` — build, type-check, unit tests, Playwright, deploy previews.
-- Branch protection gates and required checks.
-- Secret and environment configuration.
-- Phase 10 dual-AC verification hook-in.
+*[TBD]* — generalized rule for when and how **GitHub Actions** is used in this project.
 
-Body to be elaborated once the first workflow lands.
+## Resource ladder
+
+Agents resolve "how to use this tool" in tier order; stop at the first tier that answers the question. Tiers that do not apply for this tool are marked N/A.
+
+- **Tier 1 — Official skill.** Vendor-endorsed skill package, scoped to this project.
+- **Tier 2 — Official CLI.** Versioned binary with `--help` and vendor docs.
+- **Tier 3 — Official MCP documentation.** Vendor MCP server, pinned to the version in use.
+- **Tier 4 — Custom rules.** Project-specific guidance (below), used only when Tiers 1–3 cannot answer.
+
+| # | Resource | Version | Pointer |
+|---|----------|---------|---------|
+| 1 | *[TBD]* | *[TBD]* | *[TBD]* |
+| 2 | N/A — workflows run on GitHub-hosted infrastructure; no official local CLI | — | — |
+| 3 | *[TBD]* | *[TBD]* | *[TBD]* |
+| 4 | see below | — | — |
+
+## Custom rules
+
+*[TBD]* — none yet. Add only when Tiers 1–3 cannot answer a question that recurs in this project.

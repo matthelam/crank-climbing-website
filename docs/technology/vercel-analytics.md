@@ -4,11 +4,26 @@
 
 Detail page for the Standard Platform **Vercel Analytics** row — Signal: "Measuring site usage".
 
-## Planned contents
+## Rule
 
-- What is measured, and how it maps back to the three Business Principles (Conversion, Consideration, Retention).
-- Enabling and configuration — integration with **Vercel** and **Next.js**.
-- Privacy posture and data retention.
-- Relationship with the parked **Measurement / success resources** concept in the README.
+*[TBD]* — generalized rule for when and how **Vercel Analytics** is used in this project.
 
-Body to be elaborated once measurement conventions are defined.
+## Resource ladder
+
+Agents resolve "how to use this tool" in tier order; stop at the first tier that answers the question. Tiers that do not apply for this tool are marked N/A.
+
+- **Tier 1 — Official skill.** Vendor-endorsed skill package, scoped to this project.
+- **Tier 2 — Official CLI.** Versioned binary with `--help` and vendor docs.
+- **Tier 3 — Official MCP documentation.** Vendor MCP server, pinned to the version in use.
+- **Tier 4 — Custom rules.** Project-specific guidance (below), used only when Tiers 1–3 cannot answer.
+
+| # | Resource | Version | Pointer |
+|---|----------|---------|---------|
+| 1 | *[TBD]* | *[TBD]* | *[TBD]* |
+| 2 | `vercel` (no dedicated analytics CLI; covered by the Vercel CLI) | *[TBD]* | *[TBD]* |
+| 3 | *[TBD]* | *[TBD]* | *[TBD]* |
+| 4 | see below | — | — |
+
+## Custom rules
+
+*[TBD]* — none yet. Add only when Tiers 1–3 cannot answer a question that recurs in this project.

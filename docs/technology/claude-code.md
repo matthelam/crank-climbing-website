@@ -4,11 +4,26 @@
 
 Detail page for the Standard Platform **Claude Code** row — Signal: "Agent-driven repo operations".
 
-## Planned contents
+## Rule
 
-- Scope: Claude Code as the execution arm of Pattern A (LangGraph orchestrates, Claude Code executes).
-- Configuration surfaces — [`.claude/settings.json`](../../.claude/settings.json), `.claude/skills/`, `.claude/agents/`, `.claude/commands/`.
-- MCP servers in use and their roles.
-- Pointer to [`../../CLAUDE.md`](../../CLAUDE.md) for the platform-specific layer, and to [`../agents/`](../agents/) for generic conventions.
+*[TBD]* — generalized rule for when and how **Claude Code** is used in this project.
 
-Body to be elaborated once the first skill or subagent lands.
+## Resource ladder
+
+Agents resolve "how to use this tool" in tier order; stop at the first tier that answers the question. Tiers that do not apply for this tool are marked N/A.
+
+- **Tier 1 — Official skill.** Vendor-endorsed skill package, scoped to this project.
+- **Tier 2 — Official CLI.** Versioned binary with `--help` and vendor docs.
+- **Tier 3 — Official MCP documentation.** Vendor MCP server, pinned to the version in use.
+- **Tier 4 — Custom rules.** Project-specific guidance (below), used only when Tiers 1–3 cannot answer.
+
+| # | Resource | Version | Pointer |
+|---|----------|---------|---------|
+| 1 | *[TBD]* | *[TBD]* | *[TBD]* |
+| 2 | `claude` (Claude Code itself is the CLI) | *[TBD]* | *[TBD]* |
+| 3 | *[TBD]* | *[TBD]* | *[TBD]* |
+| 4 | see below | — | — |
+
+## Custom rules
+
+*[TBD]* — none yet. Add only when Tiers 1–3 cannot answer a question that recurs in this project.

@@ -4,11 +4,26 @@
 
 Detail page for the Standard Platform **Figma** row — Signal: "Design source of truth".
 
-## Planned contents
+## Rule
 
-- Project link and file organisation.
-- Frame-to-code flow — how a design becomes an intent artifact, and how `source_ref` pins intent to a specific Figma node.
-- Interaction with **v0** for generation and with **Tailwind CSS** tokens for theming.
-- Handoff expectations for developer-ready frames.
+*[TBD]* — generalized rule for when and how **Figma** is used in this project.
 
-Body to be elaborated once the first design becomes intent.
+## Resource ladder
+
+Agents resolve "how to use this tool" in tier order; stop at the first tier that answers the question. Tiers that do not apply for this tool are marked N/A.
+
+- **Tier 1 — Official skill.** Vendor-endorsed skill package, scoped to this project.
+- **Tier 2 — Official CLI.** Versioned binary with `--help` and vendor docs.
+- **Tier 3 — Official MCP documentation.** Vendor MCP server, pinned to the version in use.
+- **Tier 4 — Custom rules.** Project-specific guidance (below), used only when Tiers 1–3 cannot answer.
+
+| # | Resource | Version | Pointer |
+|---|----------|---------|---------|
+| 1 | *[TBD]* | *[TBD]* | *[TBD]* |
+| 2 | N/A — Figma is a web/desktop app; no official CLI | — | — |
+| 3 | *[TBD]* | *[TBD]* | *[TBD]* |
+| 4 | see below | — | — |
+
+## Custom rules
+
+*[TBD]* — none yet. Add only when Tiers 1–3 cannot answer a question that recurs in this project.

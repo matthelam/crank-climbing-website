@@ -4,11 +4,26 @@
 
 Detail page for the Standard Platform **Vitest** row — Signal: "Verifying non-UI logic".
 
-## Planned contents
+## Rule
 
-- Config, test-file location conventions, watch mode for TDD.
-- SOLID-aligned unit testing — tests precede code (Workflow Stage 6).
-- Coverage expectations and where they are enforced.
-- Relationship with **Playwright** (non-UI vs. UI boundary) and **TypeScript strict**.
+*[TBD]* — generalized rule for when and how **Vitest** is used in this project.
 
-Body to be elaborated once the first non-UI module lands.
+## Resource ladder
+
+Agents resolve "how to use this tool" in tier order; stop at the first tier that answers the question. Tiers that do not apply for this tool are marked N/A.
+
+- **Tier 1 — Official skill.** Vendor-endorsed skill package, scoped to this project.
+- **Tier 2 — Official CLI.** Versioned binary with `--help` and vendor docs.
+- **Tier 3 — Official MCP documentation.** Vendor MCP server, pinned to the version in use.
+- **Tier 4 — Custom rules.** Project-specific guidance (below), used only when Tiers 1–3 cannot answer.
+
+| # | Resource | Version | Pointer |
+|---|----------|---------|---------|
+| 1 | *[TBD]* | *[TBD]* | *[TBD]* |
+| 2 | `vitest` | *[TBD]* | *[TBD]* |
+| 3 | *[TBD]* | *[TBD]* | *[TBD]* |
+| 4 | see below | — | — |
+
+## Custom rules
+
+*[TBD]* — none yet. Add only when Tiers 1–3 cannot answer a question that recurs in this project.

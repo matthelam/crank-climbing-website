@@ -4,11 +4,26 @@
 
 Detail page for the Standard Platform **Radix** via **shadcn/ui** row — Signal: "Composing primitives (dialog, menu, tooltip, etc.)".
 
-## Planned contents
+## Rule
 
-- Which shadcn/ui components are in use, and where they live under `src/`.
-- The CLI-driven copy-in model — shadcn/ui components are committed source, not node_modules.
-- Theming alignment with **Tailwind CSS** tokens.
-- Accessibility guarantees inherited from Radix primitives.
+*[TBD]* — generalized rule for when and how **Radix via shadcn/ui** is used in this project.
 
-Body to be elaborated once the first primitive lands.
+## Resource ladder
+
+Agents resolve "how to use this tool" in tier order; stop at the first tier that answers the question. Tiers that do not apply for this tool are marked N/A.
+
+- **Tier 1 — Official skill.** Vendor-endorsed skill package, scoped to this project.
+- **Tier 2 — Official CLI.** Versioned binary with `--help` and vendor docs.
+- **Tier 3 — Official MCP documentation.** Vendor MCP server, pinned to the version in use.
+- **Tier 4 — Custom rules.** Project-specific guidance (below), used only when Tiers 1–3 cannot answer.
+
+| # | Resource | Version | Pointer |
+|---|----------|---------|---------|
+| 1 | *[TBD]* | *[TBD]* | *[TBD]* |
+| 2 | `shadcn` (for copy-in of components) | *[TBD]* | *[TBD]* |
+| 3 | *[TBD]* | *[TBD]* | *[TBD]* |
+| 4 | see below | — | — |
+
+## Custom rules
+
+*[TBD]* — none yet. Add only when Tiers 1–3 cannot answer a question that recurs in this project.
