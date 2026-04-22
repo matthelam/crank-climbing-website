@@ -24,28 +24,28 @@ Use the Standard Platform as a tool router. The Signal is the task that needs ac
 
 | Category | Signal | Key | Detail |
 |----------|--------|-----|--------|
-| Core | Building an application page or route | **Next.js** | *[TBD]* |
-| Core | Writing typed code | **TypeScript** | *[TBD]* |
-| Core | Deploying the application | **Vercel** | *[TBD]* |
-| Core | Hosting source + collaboration | **GitHub** | *[TBD]* |
-| Core | Running CI on every push | **GitHub Actions** | *[TBD]* |
-| Frontend | Styling an element | **Tailwind CSS** | *[TBD]* |
-| Frontend | Composing primitives (dialog, menu, tooltip, etc.) | **Radix** via **shadcn/ui** | *[TBD]* |
-| Frontend | Design source of truth | **Figma** | *[TBD]* |
-| Quality | Verifying UI behaviour end-to-end | **Playwright** | *[TBD]* |
-| Quality | Enforcing type correctness | **TypeScript strict** | *[TBD]* |
-| Quality | Verifying non-UI logic | **Vitest** | *[TBD]* |
-| AI Tooling | IDE-embedded chat and scoped edits | **GitHub Copilot** | *[TBD]* |
-| AI Tooling | Agent-driven repo operations | **Claude Code** | *[TBD]* |
-| AI Tooling | Orchestrating multi-step agent workflows (extraction ceremonies, verification gates) | **LangGraph** | *[TBD]* |
-| AI Tooling | Generating UI from a prompt or Figma frame | **v0** | *[TBD]* |
-| AI Tooling | Looking up framework or Vercel documentation | **Next.js DevTools MCP**, **Vercel MCP** | *[TBD]* |
-| AI Tooling | Looking up Microsoft / Azure documentation | **Microsoft Docs MCP** | *[TBD]* |
-| AI Tooling | Inspecting a running page (DOM, network, logs) | **Chrome DevTools MCP** | *[TBD]* |
-| AI Tooling | Automating a browser (scripted interactions) | **Playwright MCP** | *[TBD]* |
-| Operations | Measuring site usage | **Vercel Analytics** | *[TBD]* |
-| Operations | Capturing runtime logs and errors | **Vercel runtime observability** | *[TBD]* |
-| Operations | Installing and managing dependencies | **npm** | *[TBD]* |
+| Core | Building an application page or route | **Next.js** | [`docs/technology/next-js.md`](docs/technology/next-js.md) *[TBD]* |
+| Core | Writing typed code | **TypeScript** | [`docs/technology/typescript.md`](docs/technology/typescript.md) *[TBD]* |
+| Core | Deploying the application | **Vercel** | [`docs/technology/vercel.md`](docs/technology/vercel.md) *[TBD]* |
+| Core | Hosting source + collaboration | **GitHub** | [`docs/technology/github.md`](docs/technology/github.md) *[TBD]* |
+| Core | Running CI on every push | **GitHub Actions** | [`docs/technology/github-actions.md`](docs/technology/github-actions.md) *[TBD]* |
+| Frontend | Styling an element | **Tailwind CSS** | [`docs/technology/tailwind.md`](docs/technology/tailwind.md) *[TBD]* |
+| Frontend | Composing primitives (dialog, menu, tooltip, etc.) | **Radix** via **shadcn/ui** | [`docs/technology/radix-shadcn.md`](docs/technology/radix-shadcn.md) *[TBD]* |
+| Frontend | Design source of truth | **Figma** | [`docs/technology/figma.md`](docs/technology/figma.md) *[TBD]* |
+| Quality | Verifying UI behaviour end-to-end | **Playwright** | [`docs/technology/playwright.md`](docs/technology/playwright.md) *[TBD]* |
+| Quality | Enforcing type correctness | **TypeScript strict** | [`docs/technology/typescript.md`](docs/technology/typescript.md) *[TBD]* |
+| Quality | Verifying non-UI logic | **Vitest** | [`docs/technology/vitest.md`](docs/technology/vitest.md) *[TBD]* |
+| AI Tooling | IDE-embedded chat and scoped edits | **GitHub Copilot** | [`docs/technology/github-copilot.md`](docs/technology/github-copilot.md) *[TBD]* |
+| AI Tooling | Agent-driven repo operations | **Claude Code** | [`docs/technology/claude-code.md`](docs/technology/claude-code.md) *[TBD]* |
+| AI Tooling | Orchestrating multi-step agent workflows (extraction ceremonies, verification gates) | **LangGraph** | [`docs/technology/langgraph.md`](docs/technology/langgraph.md) *[TBD]* |
+| AI Tooling | Generating UI from a prompt or Figma frame | **v0** | [`docs/technology/v0.md`](docs/technology/v0.md) *[TBD]* |
+| AI Tooling | Looking up framework or Vercel documentation | **Next.js DevTools MCP**, **Vercel MCP** | [`docs/technology/next-js-devtools-mcp.md`](docs/technology/next-js-devtools-mcp.md), [`docs/technology/vercel-mcp.md`](docs/technology/vercel-mcp.md) *[TBD]* |
+| AI Tooling | Looking up Microsoft / Azure documentation | **Microsoft Docs MCP** | [`docs/technology/microsoft-docs-mcp.md`](docs/technology/microsoft-docs-mcp.md) *[TBD]* |
+| AI Tooling | Inspecting a running page (DOM, network, logs) | **Chrome DevTools MCP** | [`docs/technology/chrome-devtools-mcp.md`](docs/technology/chrome-devtools-mcp.md) *[TBD]* |
+| AI Tooling | Automating a browser (scripted interactions) | **Playwright MCP** | [`docs/technology/playwright-mcp.md`](docs/technology/playwright-mcp.md) *[TBD]* |
+| Operations | Measuring site usage | **Vercel Analytics** | [`docs/technology/vercel-analytics.md`](docs/technology/vercel-analytics.md) *[TBD]* |
+| Operations | Capturing runtime logs and errors | **Vercel runtime observability** | [`docs/technology/vercel-runtime-observability.md`](docs/technology/vercel-runtime-observability.md) *[TBD]* |
+| Operations | Installing and managing dependencies | **npm** | [`docs/technology/npm.md`](docs/technology/npm.md) *[TBD]* |
 
 Future capabilities (auth, payments, CMS, richer observability) will be chosen from the **Vercel**, **GitHub**, or **Microsoft** ecosystems. This is the binding constraint — specific tools are selected when the need arises, not speculatively.
 
@@ -130,7 +130,7 @@ Outstanding items as of this revision. Each entry points at the placeholder file
 - Seed documents under [`intent/`](intent/) — first Feature, Story, and Task once authoring governance is settled.
 - Extraction-ceremony graph under [`orchestration/graphs/`](orchestration/) — a LangGraph state machine governing how Tier 2 Insights promote into Tier 3 intent artifacts. First concrete consumer of the Cognitive Profile Compiler's output.
 - Crank agent roster under [`orchestration/profiles/`](orchestration/) — cognitive profiles per altitude band (Executor through Principal) and per concern lens (Security, Performance, Accessibility).
-- Detailed instructions per Standard Platform tool (one document per Key).
+- Detailed instructions per Standard Platform tool (one document per Key) — stubs scaffolded under [`docs/technology/`](docs/technology/); bodies remain *[TBD]*.
 - Detailed instructions per Workflow stage (one document per stage).
 - Engineering Practices elaboration if depth grows.
 
