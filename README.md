@@ -86,6 +86,7 @@ Directory structure. Functional map for agent navigation, not a cosmetic tree. B
 | [`intent/features/`](intent/features/) *[TBD]* | Feature markdown files | When scoping work or identifying a parent for a Story |
 | [`intent/stories/`](intent/stories/) *[TBD]* | Story markdown files | When decomposing into Tasks or writing Red Tests |
 | [`intent/tasks/`](intent/tasks/) *[TBD]* | Task markdown files | When implementing, referencing in PRs or commits |
+| [`docs/agents/`](docs/agents/) | Canonical agent conventions — session-start, tool dispatch, context compaction, ambiguity, citation, lock-once | On session start, and any time a platform router (`CLAUDE.md`, `AGENTS.md`, Copilot, LangGraph node) defers here |
 | [`docs/technology/`](docs/technology/) | Per-tool and per-stage reference docs, one-off technical sketches | When a Standard Platform or Workflow link resolves here |
 | [`orchestration/`](orchestration/) | LangGraph graph definitions; Crank cognitive-profile roster | When authoring or running an agent workflow (extraction, verification, approval) |
 | [`infrastructure/`](infrastructure/) *[TBD]* | Deployment and environment configuration; IaC when it lands | When changing deployment behaviour or environment setup |
@@ -113,13 +114,13 @@ Schemas. The schema layer made navigable; each Key points at the JSON file that 
 Outstanding items as of this revision. Each entry points at the placeholder file where work continues, the parked concept awaiting the right moment, or the open decision to settle.
 
 **Placeholder files to materialise**
-- [`CLAUDE.md`](CLAUDE.md) — session-start protocol, tool dispatch, context compaction rules, ambiguity + deviation protocol, citation conventions.
-- [`AGENTS.md`](AGENTS.md) — cross-tool agent conventions pointing at the rest.
+- [`docs/agents/`](docs/agents/) — canonical agent convention bodies (session-start, tool dispatch, context compaction, ambiguity, citation, lock-once). Router exists; each sub-doc is *[TBD]*.
+- [`CLAUDE.md`](CLAUDE.md) — Claude-Code-specific layer only (hooks, skills, subagents, commands, MCP). Router established; platform-specific body *[TBD]*.
 - [`.claude/settings.json`](.claude/settings.json) — permissions, hooks, model preferences.
 - [`.claude/skills/`](.claude/skills/) — custom skills (Agent and Instruction definitions, daisy-chain target from Technology Principles).
 - [`.claude/agents/`](.claude/agents/) — subagent definitions when a task warrants one.
 - [`.claude/commands/`](.claude/commands/) — custom slash commands for recurring orchestrations.
-- [`.github/copilot-instructions.md`](.github/copilot-instructions.md) — Copilot-specific conventions.
+- [`.github/copilot-instructions.md`](.github/copilot-instructions.md) — Copilot-specific body beyond the three resident Engineering Practices.
 - [`.github/pull_request_template.md`](.github/pull_request_template.md) — enforces Phase 10 dual-AC verification.
 - [`.github/ISSUE_TEMPLATE/`](.github/ISSUE_TEMPLATE/) — intake templates for Scope, Requirement, Story.
 
