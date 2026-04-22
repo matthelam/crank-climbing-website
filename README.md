@@ -37,6 +37,7 @@ Use the Standard Platform as a tool router. The Signal is the task that needs ac
 | Quality | Verifying non-UI logic | **Vitest** | *[TBD]* |
 | AI Tooling | Inline code completion while typing | **GitHub Copilot** | *[TBD]* |
 | AI Tooling | Agent-driven repo operations | **Claude Code** | *[TBD]* |
+| AI Tooling | Orchestrating multi-step agent workflows (extraction ceremonies, verification gates) | **LangGraph** | *[TBD]* |
 | AI Tooling | Generating UI from a prompt or Figma frame | **v0** | *[TBD]* |
 | AI Tooling | Looking up framework or Vercel documentation | **Next.js DevTools MCP**, **Vercel MCP** | *[TBD]* |
 | AI Tooling | Looking up Microsoft / Azure documentation | **Microsoft Docs MCP** | *[TBD]* |
@@ -133,10 +134,10 @@ Outstanding items as of this revision. Each entry points at the placeholder file
 - Marketing brand kit — linked document; required input for UI/UX and content work.
 - Measurement / success resources — links defining how business outcomes are measured.
 - Cognitive Profile Compiler — a separate repository that translates 12-dimension cognitive profiles into LangGraph node configurations. Crank is a downstream consumer, not an owner.
-- Semantic router / intent-classified content map — Azure AI Search-based architecture for LLM-at-the-front intent classification feeding deterministic retrieval. Introduce if a chatbot or guided-navigation feature enters scope.
+- Semantic router / intent-classified content map — Azure AI Search-based architecture for LLM-at-the-front intent classification feeding deterministic retrieval. Sketch archived in [`docs/technology/chatbot-semantic-router.md`](docs/technology/chatbot-semantic-router.md); revisit if a chatbot or guided-navigation feature enters scope much later in the project.
 
 **Open decisions**
 - Whether to extend the signal→key pattern to Engineering Practices for consistency.
 - Top-level "done" definition for the project as a whole.
 - Sequencing guidance for Stories across the three Business Principles tiers.
-- Orchestration stack. Pattern A (LangGraph orchestrates, Claude Code executes) is the working hypothesis. Pending: whether to add **LangGraph** to Standard Platform now or once the first graph is authored, and where committed graph definitions live (e.g. `graphs/`, `orchestration/`, `docs/orchestration/`).
+- Where committed LangGraph graph definitions live in the tree (e.g. `graphs/`, `orchestration/`, `docs/orchestration/`). To be settled before the first graph lands.
