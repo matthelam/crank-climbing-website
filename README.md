@@ -76,34 +76,37 @@ Use the Workflow to determine where the requested action exists. Scan Signals to
 
 ### Documentation
 
-Intent artifacts — Features, Stories, Tasks — live as markdown under `docs/`, authored for humans and consumed by agents. Upstream design sources (Figma, Notion, and similar) and downstream delivery artifacts are out of scope for this directory; only intent lives here. Intent is locked once authored: changes produce new artifacts, not edits to old ones.
+Intent artifacts — Features, Stories, Tasks — live as markdown under [`intent/`](intent/), authored for humans and consumed by agents. Upstream design sources (Figma, Notion, and similar) and downstream delivery artifacts are out of scope for this directory; only intent lives here. Intent is locked once authored: changes produce new artifacts, not edits to old ones. Reference material and per-tool how-to live separately under [`docs/`](docs/) — that directory has a different, revisable lifecycle.
 
-Directory structure. Functional map for agent navigation, not a cosmetic tree.
+Directory structure. Functional map for agent navigation, not a cosmetic tree. Binding specification lives under [`intent/`](intent/); reference reading lives under [`docs/`](docs/) — different lifecycles, different rules.
 
 | Path | Contains | When to read |
 |------|----------|--------------|
-| [`docs/schemas/`](docs/schemas/) *[TBD]* | JSON schemas for intent artifacts | Before authoring or validating any Feature, Story, or Task |
-| [`docs/intent/features/`](docs/intent/features/) *[TBD]* | Feature markdown files | When scoping work or identifying a parent for a Story |
-| [`docs/intent/stories/`](docs/intent/stories/) *[TBD]* | Story markdown files | When decomposing into Tasks or writing Red Tests |
-| [`docs/intent/tasks/`](docs/intent/tasks/) *[TBD]* | Task markdown files | When implementing, referencing in PRs or commits |
-| [`docs/technology/`](docs/technology/) | Per-tool and per-stage detail docs | When a Standard Platform or Workflow link resolves here |
+| [`intent/schemas/`](intent/schemas/) *[TBD]* | JSON schemas for intent artifacts | Before authoring or validating any Feature, Story, or Task |
+| [`intent/features/`](intent/features/) *[TBD]* | Feature markdown files | When scoping work or identifying a parent for a Story |
+| [`intent/stories/`](intent/stories/) *[TBD]* | Story markdown files | When decomposing into Tasks or writing Red Tests |
+| [`intent/tasks/`](intent/tasks/) *[TBD]* | Task markdown files | When implementing, referencing in PRs or commits |
+| [`docs/technology/`](docs/technology/) | Per-tool and per-stage reference docs, one-off technical sketches | When a Standard Platform or Workflow link resolves here |
+| [`orchestration/`](orchestration/) | LangGraph graph definitions; Crank cognitive-profile roster | When authoring or running an agent workflow (extraction, verification, approval) |
+| [`infrastructure/`](infrastructure/) *[TBD]* | Deployment and environment configuration; IaC when it lands | When changing deployment behaviour or environment setup |
+| [`src/`](src/) *[TBD]* | Application source | When implementing a Task that produces code |
 
 Documents. Scan Signals top-down; the first match names the artifact type you need.
 
 | Signal | Key | Detail |
 |--------|-----|--------|
-| Need to understand what we're building at scope level | **Feature** | [`docs/intent/features/`](docs/intent/features/) *[TBD]* |
-| Need user-facing behaviour with acceptance criteria | **Story** | [`docs/intent/stories/`](docs/intent/stories/) *[TBD]* |
-| Need the next executable unit of work | **Task** | [`docs/intent/tasks/`](docs/intent/tasks/) *[TBD]* |
-| Need to validate or author an intent artifact | **Schema** | [`docs/schemas/`](docs/schemas/) *[TBD]* |
+| Need to understand what we're building at scope level | **Feature** | [`intent/features/`](intent/features/) *[TBD]* |
+| Need user-facing behaviour with acceptance criteria | **Story** | [`intent/stories/`](intent/stories/) *[TBD]* |
+| Need the next executable unit of work | **Task** | [`intent/tasks/`](intent/tasks/) *[TBD]* |
+| Need to validate or author an intent artifact | **Schema** | [`intent/schemas/`](intent/schemas/) *[TBD]* |
 
 Schemas. The schema layer made navigable; each Key points at the JSON file that governs that artifact type.
 
 | Signal | Key | Detail |
 |--------|-----|--------|
-| Authoring or validating a Feature | **`feature.schema.json`** | [`docs/schemas/feature.schema.json`](docs/schemas/feature.schema.json) *[TBD]* |
-| Authoring or validating a Story | **`story.schema.json`** | [`docs/schemas/story.schema.json`](docs/schemas/story.schema.json) *[TBD]* |
-| Authoring or validating a Task | **`task.schema.json`** | [`docs/schemas/task.schema.json`](docs/schemas/task.schema.json) *[TBD]* |
+| Authoring or validating a Feature | **`feature.schema.json`** | [`intent/schemas/feature.schema.json`](intent/schemas/feature.schema.json) *[TBD]* |
+| Authoring or validating a Story | **`story.schema.json`** | [`intent/schemas/story.schema.json`](intent/schemas/story.schema.json) *[TBD]* |
+| Authoring or validating a Task | **`task.schema.json`** | [`intent/schemas/task.schema.json`](intent/schemas/task.schema.json) *[TBD]* |
 
 ## TODO
 
@@ -122,10 +125,10 @@ Outstanding items as of this revision. Each entry points at the placeholder file
 
 **Linked documents still to author** *(ordered by load-bearing weight)*
 - [`docs/technology/reproducibility.md`](docs/technology/reproducibility.md) — the most load-bearing unresolved piece. Defines per-type reproducibility mechanisms, the intent vs. delivery artifact distinction, Story/Task completion criteria, and the no-backout-in-application rule. Anchors the four-tier knowledge flow (Raw Notes → Insights → Intent → Delivery), names the extraction ceremony as a human-gated ritual that happens outside the repo, and makes the lock-once principle testable.
-- Intent schemas in [`docs/schemas/`](docs/schemas/) — `feature.schema.json`, `story.schema.json`, `task.schema.json`. The extraction contract: schema shape determines upstream chunk taxonomy. Includes the `source_ref` field that pins each artifact to its upstream extraction source.
-- Seed documents under [`docs/intent/`](docs/intent/) — first Feature, Story, and Task once authoring governance is settled.
-- Extraction ceremony graph — a LangGraph state machine governing how Tier 2 Insights promote into Tier 3 Feature/Story/Task artifacts. First concrete consumer of the Cognitive Profile Compiler's output.
-- Crank agent roster — cognitive profiles per altitude band (Executor through Principal) and per concern lens (Security, Performance, Accessibility).
+- Intent schemas in [`intent/schemas/`](intent/schemas/) — `feature.schema.json`, `story.schema.json`, `task.schema.json`. The extraction contract: schema shape determines upstream chunk taxonomy. Includes the `source_ref` field that pins each artifact to its upstream extraction source.
+- Seed documents under [`intent/`](intent/) — first Feature, Story, and Task once authoring governance is settled.
+- Extraction-ceremony graph under [`orchestration/graphs/`](orchestration/) — a LangGraph state machine governing how Tier 2 Insights promote into Tier 3 intent artifacts. First concrete consumer of the Cognitive Profile Compiler's output.
+- Crank agent roster under [`orchestration/profiles/`](orchestration/) — cognitive profiles per altitude band (Executor through Principal) and per concern lens (Security, Performance, Accessibility).
 - Detailed instructions per Standard Platform tool (one document per Key).
 - Detailed instructions per Workflow stage (one document per stage).
 - Engineering Practices elaboration if depth grows.
@@ -140,4 +143,3 @@ Outstanding items as of this revision. Each entry points at the placeholder file
 - Whether to extend the signal→key pattern to Engineering Practices for consistency.
 - Top-level "done" definition for the project as a whole.
 - Sequencing guidance for Stories across the three Business Principles tiers.
-- Where committed LangGraph graph definitions live in the tree (e.g. `graphs/`, `orchestration/`, `docs/orchestration/`). To be settled before the first graph lands.
