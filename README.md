@@ -119,19 +119,24 @@ Outstanding items as of this revision. Each entry points at the placeholder file
 - [`.github/pull_request_template.md`](.github/pull_request_template.md) — enforces Phase 10 dual-AC verification.
 - [`.github/ISSUE_TEMPLATE/`](.github/ISSUE_TEMPLATE/) — intake templates for Scope, Requirement, Story.
 
-**Linked documents still to author**
-- [`docs/technology/reproducibility.md`](docs/technology/reproducibility.md) — per-type reproducibility mechanisms, intent vs. delivery artifact distinction, Story/Task completion definition, no-backout-in-application rule.
+**Linked documents still to author** *(ordered by load-bearing weight)*
+- [`docs/technology/reproducibility.md`](docs/technology/reproducibility.md) — the most load-bearing unresolved piece. Defines per-type reproducibility mechanisms, the intent vs. delivery artifact distinction, Story/Task completion criteria, and the no-backout-in-application rule. Anchors the four-tier knowledge flow (Raw Notes → Insights → Intent → Delivery), names the extraction ceremony as a human-gated ritual that happens outside the repo, and makes the lock-once principle testable.
+- Intent schemas in [`docs/schemas/`](docs/schemas/) — `feature.schema.json`, `story.schema.json`, `task.schema.json`. The extraction contract: schema shape determines upstream chunk taxonomy. Includes the `source_ref` field that pins each artifact to its upstream extraction source.
+- Seed documents under [`docs/intent/`](docs/intent/) — first Feature, Story, and Task once authoring governance is settled.
+- Extraction ceremony graph — a LangGraph state machine governing how Tier 2 Insights promote into Tier 3 Feature/Story/Task artifacts. First concrete consumer of the Cognitive Profile Compiler's output.
+- Crank agent roster — cognitive profiles per altitude band (Executor through Principal) and per concern lens (Security, Performance, Accessibility).
 - Detailed instructions per Standard Platform tool (one document per Key).
 - Detailed instructions per Workflow stage (one document per stage).
-- Intent schemas in [`docs/schemas/`](docs/schemas/) — `feature.schema.json`, `story.schema.json`, `task.schema.json`, including the `source_ref` field that pins each artifact to its upstream extraction source.
-- Seed documents under [`docs/intent/`](docs/intent/) — first Feature, Story, and Task once authoring governance is settled.
 - Engineering Practices elaboration if depth grows.
 
 **Parked concepts (introduce when the project needs them)**
 - Marketing brand kit — linked document; required input for UI/UX and content work.
 - Measurement / success resources — links defining how business outcomes are measured.
+- Cognitive Profile Compiler — a separate repository that translates 12-dimension cognitive profiles into LangGraph node configurations. Crank is a downstream consumer, not an owner.
+- Semantic router / intent-classified content map — Azure AI Search-based architecture for LLM-at-the-front intent classification feeding deterministic retrieval. Introduce if a chatbot or guided-navigation feature enters scope.
 
 **Open decisions**
 - Whether to extend the signal→key pattern to Engineering Practices for consistency.
 - Top-level "done" definition for the project as a whole.
 - Sequencing guidance for Stories across the three Business Principles tiers.
+- Orchestration stack. Pattern A (LangGraph orchestrates, Claude Code executes) is the working hypothesis. Pending: whether to add **LangGraph** to Standard Platform now or once the first graph is authored, and where committed graph definitions live (e.g. `graphs/`, `orchestration/`, `docs/orchestration/`).
