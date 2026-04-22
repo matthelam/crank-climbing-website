@@ -8,14 +8,8 @@
 
 ## Copilot-specific layer *[TBD]*
 
-Copilot's primary surface is inline code completion. The repo-wide conventions that apply:
-
-- UI code: **Atomic Design** for component structure.
-- Non-UI code: **SOLID** for module design.
-- Tests precede code: **TDD** (red → green → refactor).
-
-These are repeated here only because Copilot does not follow markdown links during inline completion — it needs them resident. Everything else a Copilot *chat* session needs lives in [`docs/agents/`](../docs/agents/) and should be consulted explicitly.
+Reserved for content unique to Copilot — chat context preferences, agent-mode scoping rules, IDE-integration notes. Inline completion is not in scope for this project; no resident content is maintained for that surface.
 
 ## Non-duplication rule
 
-Conventions belong in [`docs/agents/`](../docs/agents/). Duplication in this file is limited to the three Engineering Practices listed above, which must be resident for inline completion to apply them.
+Conventions belong in [`docs/agents/`](../docs/agents/). This file routes; it does not redeclare.

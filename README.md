@@ -35,7 +35,7 @@ Use the Standard Platform as a tool router. The Signal is the task that needs ac
 | Quality | Verifying UI behaviour end-to-end | **Playwright** | *[TBD]* |
 | Quality | Enforcing type correctness | **TypeScript strict** | *[TBD]* |
 | Quality | Verifying non-UI logic | **Vitest** | *[TBD]* |
-| AI Tooling | Inline code completion while typing | **GitHub Copilot** | *[TBD]* |
+| AI Tooling | IDE-embedded chat and scoped edits | **GitHub Copilot** | *[TBD]* |
 | AI Tooling | Agent-driven repo operations | **Claude Code** | *[TBD]* |
 | AI Tooling | Orchestrating multi-step agent workflows (extraction ceremonies, verification gates) | **LangGraph** | *[TBD]* |
 | AI Tooling | Generating UI from a prompt or Figma frame | **v0** | *[TBD]* |
@@ -120,7 +120,7 @@ Outstanding items as of this revision. Each entry points at the placeholder file
 - [`.claude/skills/`](.claude/skills/) — custom skills (Agent and Instruction definitions, daisy-chain target from Technology Principles).
 - [`.claude/agents/`](.claude/agents/) — subagent definitions when a task warrants one.
 - [`.claude/commands/`](.claude/commands/) — custom slash commands for recurring orchestrations.
-- [`.github/copilot-instructions.md`](.github/copilot-instructions.md) — Copilot-specific body beyond the three resident Engineering Practices.
+- [`.github/copilot-instructions.md`](.github/copilot-instructions.md) — Copilot-specific body (chat context preferences, agent-mode scoping, IDE integration notes). Router established; inline completion is not in scope, so no resident duplication is maintained.
 - [`.github/pull_request_template.md`](.github/pull_request_template.md) — enforces Phase 10 dual-AC verification.
 - [`.github/ISSUE_TEMPLATE/`](.github/ISSUE_TEMPLATE/) — intake templates for Scope, Requirement, Story.
 
