@@ -75,7 +75,34 @@ Use the Workflow to determine where the requested action exists. Scan Signals to
 
 ### Documentation
 
-Requirements, User Stories, and Test Plans live as markdown in a dedicated documentation directory — authored for humans, consumed by agents. These are intent artifacts in natural language; they inform the deterministic delivery artifacts produced downstream. Structure and governance: *[TBD]*.
+Intent artifacts — Features, Stories, Tasks — live as markdown under `docs/`, authored for humans and consumed by agents. Upstream design sources (Figma, Notion, and similar) and downstream delivery artifacts are out of scope for this directory; only intent lives here. Intent is locked once authored: changes produce new artifacts, not edits to old ones.
+
+Directory structure. Functional map for agent navigation, not a cosmetic tree.
+
+| Path | Contains | When to read |
+|------|----------|--------------|
+| [`docs/schemas/`](docs/schemas/) *[TBD]* | JSON schemas for intent artifacts | Before authoring or validating any Feature, Story, or Task |
+| [`docs/intent/features/`](docs/intent/features/) *[TBD]* | Feature markdown files | When scoping work or identifying a parent for a Story |
+| [`docs/intent/stories/`](docs/intent/stories/) *[TBD]* | Story markdown files | When decomposing into Tasks or writing Red Tests |
+| [`docs/intent/tasks/`](docs/intent/tasks/) *[TBD]* | Task markdown files | When implementing, referencing in PRs or commits |
+| [`docs/technology/`](docs/technology/) | Per-tool and per-stage detail docs | When a Standard Platform or Workflow link resolves here |
+
+Documents. Scan Signals top-down; the first match names the artifact type you need.
+
+| Signal | Key | Detail |
+|--------|-----|--------|
+| Need to understand what we're building at scope level | **Feature** | [`docs/intent/features/`](docs/intent/features/) *[TBD]* |
+| Need user-facing behaviour with acceptance criteria | **Story** | [`docs/intent/stories/`](docs/intent/stories/) *[TBD]* |
+| Need the next executable unit of work | **Task** | [`docs/intent/tasks/`](docs/intent/tasks/) *[TBD]* |
+| Need to validate or author an intent artifact | **Schema** | [`docs/schemas/`](docs/schemas/) *[TBD]* |
+
+Schemas. The schema layer made navigable; each Key points at the JSON file that governs that artifact type.
+
+| Signal | Key | Detail |
+|--------|-----|--------|
+| Authoring or validating a Feature | **`feature.schema.json`** | [`docs/schemas/feature.schema.json`](docs/schemas/feature.schema.json) *[TBD]* |
+| Authoring or validating a Story | **`story.schema.json`** | [`docs/schemas/story.schema.json`](docs/schemas/story.schema.json) *[TBD]* |
+| Authoring or validating a Task | **`task.schema.json`** | [`docs/schemas/task.schema.json`](docs/schemas/task.schema.json) *[TBD]* |
 
 ## TODO
 
@@ -96,7 +123,8 @@ Outstanding items as of this revision. Each entry points at the placeholder file
 - [`docs/technology/reproducibility.md`](docs/technology/reproducibility.md) — per-type reproducibility mechanisms, intent vs. delivery artifact distinction, Story/Task completion definition, no-backout-in-application rule.
 - Detailed instructions per Standard Platform tool (one document per Key).
 - Detailed instructions per Workflow stage (one document per stage).
-- Documentation directory structure, authoring model, granularity, governance.
+- Intent schemas in [`docs/schemas/`](docs/schemas/) — `feature.schema.json`, `story.schema.json`, `task.schema.json`, including the `source_ref` field that pins each artifact to its upstream extraction source.
+- Seed documents under [`docs/intent/`](docs/intent/) — first Feature, Story, and Task once authoring governance is settled.
 - Engineering Practices elaboration if depth grows.
 
 **Parked concepts (introduce when the project needs them)**
@@ -104,6 +132,6 @@ Outstanding items as of this revision. Each entry points at the placeholder file
 - Measurement / success resources — links defining how business outcomes are measured.
 
 **Open decisions**
-- Whether to extend the signal→key pattern to Engineering Practices and Documentation for consistency.
+- Whether to extend the signal→key pattern to Engineering Practices for consistency.
 - Top-level "done" definition for the project as a whole.
 - Sequencing guidance for Stories across the three Business Principles tiers.
