@@ -1,6 +1,6 @@
 # Microsoft Docs MCP
 
-**Status:** Resource ladder populated from official Microsoft Learn docs as of 2026-04-22; body remains *[TBD]*.
+**Status:** Resource ladder populated from official Microsoft Learn docs as of 2026-04-22.
 
 Detail page for the Standard Platform **Microsoft Docs MCP** entry — Signal: "Looking up Microsoft / Azure documentation".
 
@@ -34,4 +34,4 @@ Agents resolve "how to use this tool" in tier order; stop at the first tier that
 
 ## Custom rules
 
-*[TBD]* — none yet. Add only when Tiers 1–3 cannot answer a question that recurs in this project.
+None yet. Add only when Tiers 1–3 cannot answer a question that recurs in this project.

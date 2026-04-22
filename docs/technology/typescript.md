@@ -1,6 +1,6 @@
 # TypeScript
 
-**Status:** Resource ladder populated from official Microsoft / TypeScript docs as of 2026-04-22; body remains *[TBD]*.
+**Status:** Resource ladder populated from official Microsoft / TypeScript docs as of 2026-04-22.
 
 Detail page for two Standard Platform rows — **TypeScript** (Signal: "Writing typed code") and **TypeScript strict** (Signal: "Enforcing type correctness").
 
@@ -34,4 +34,4 @@ Agents resolve "how to use this tool" in tier order; stop at the first tier that
 
 ## Custom rules
 
-*[TBD]* — none yet. Add only when Tiers 1–3 cannot answer a question that recurs in this project.
+None yet. Add only when Tiers 1–3 cannot answer a question that recurs in this project.

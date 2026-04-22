@@ -1,6 +1,6 @@
 # Chrome DevTools MCP
 
-**Status:** Resource ladder populated from official Chrome DevTools docs as of 2026-04-22; body remains *[TBD]*.
+**Status:** Resource ladder populated from official Chrome DevTools docs as of 2026-04-22.
 
 Detail page for the Standard Platform **Chrome DevTools MCP** entry — Signal: "Inspecting a running page (DOM, network, logs)".
 
@@ -34,4 +34,4 @@ Agents resolve "how to use this tool" in tier order; stop at the first tier that
 
 ## Custom rules
 
-*[TBD]* — none yet. Add only when Tiers 1–3 cannot answer a question that recurs in this project.
+None yet. Add only when Tiers 1–3 cannot answer a question that recurs in this project.
