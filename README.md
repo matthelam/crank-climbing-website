@@ -34,6 +34,8 @@ Closed list. Future capabilities chosen from the **Vercel**, **GitHub**, or **Mi
 
 The binding signal is the *what* — the closed list above. The *how* is what 2026 agents already know.
 
+**Version policy.** Pin every tool above to an explicit version (default: latest current stable when not yet picked). No floating ranges. Bumps are deliberate intent changes — lock-once.
+
 ## Workflow
 
 Twelve stages — see [`docs/workflow.md`](docs/workflow.md). Walk top-down; first signal that fires is the current stage.
