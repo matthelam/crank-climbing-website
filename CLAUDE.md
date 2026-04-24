@@ -1,23 +1,7 @@
 # CLAUDE.md
 
-Claude Code session grounding.
+Claude Code session grounding. The binding source of truth is [`README.md`](README.md) and the Spec Kit constitution at [`.specify/memory/constitution.md`](.specify/memory/constitution.md).
 
-## How to read this repo
+Workflow runs through the `/speckit.*` commands under [`.claude/commands/`](.claude/commands/). Stages 6–12 follow [`docs/workflow.md`](docs/workflow.md).
 
-1. The binding source of truth is the [root `README.md`](README.md) — Business Principles, Technology Principles, Standard Platform, Workflow, and Documentation routers.
-2. Generic agent conventions — session-start protocol, tool dispatch, context compaction, ambiguity protocol, citation, lock-once discipline — live in [`docs/agents/`](docs/agents/). This file **does not duplicate those conventions**.
-3. Only Claude-Code-specific material goes in this file.
-
-## Claude-Code-specific layer *[TBD]*
-
-Only content that is unique to the Claude Code platform belongs here. Everything else routes to `docs/agents/`.
-
-- **Permissions and hooks** — [`.claude/settings.json`](.claude/settings.json) *[TBD]*.
-- **Skills** — [`.claude/skills/`](.claude/skills/) *[TBD]*.
-- **Subagents** — [`.claude/agents/`](.claude/agents/) *[TBD]*.
-- **Slash commands** — [`.claude/commands/`](.claude/commands/) *[TBD]*.
-- **MCP server configuration** — to document once the first project-scoped MCP server is wired.
-
-## Non-duplication rule
-
-If a rule applies to any agent that reads this repo (Copilot, a LangGraph node, a generic AGENTS.md reader), it belongs in [`docs/agents/`](docs/agents/), not here. This file's scope is strictly platform-specific behaviour.
+Permissions, hooks, and project-scoped MCP servers live in [`.claude/settings.json`](.claude/settings.json) when they exist.

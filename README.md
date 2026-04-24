@@ -1,156 +1,66 @@
 # Crank Climbing Website
 
-This README binds every decision in this repository — business and technology.
+This repo is the system's only source of truth. The agent harness is **GitHub Spec Kit + Claude Code**. The constitution at [`.specify/memory/constitution.md`](.specify/memory/constitution.md) is binding.
 
-## Mission Statement
+## Mission
 
 Crank welcomes everyone into climbing and ninja — a healthy, friendly community where anyone belongs.
 
-## Business Principles
+## Business principles
 
 1. **Conversion** — First Time, Memberships, Coaching, Group Bookings, Gift Cards, Contact Us.
 2. **Consideration** — Services & Facilities, Operating Times, Events, Community Engagement.
 3. **Retention** — Certifications, Membership management, Waivers.
 
-## Technology Principles
+Every Feature traces to one principle.
 
-This repository holds every aspect of the system — it is the system's only source of truth. Artifacts must be informed by Requirements and delivered as deterministic, committed artifacts. The test: can the collective artifacts within this repository rebuild or restore every aspect of the system?
+## Standard Platform
 
-Detailed mechanisms — intent vs. delivery artifacts, per-type reproducibility, completion definitions — live in [`docs/technology/reproducibility.md`](docs/technology/reproducibility.md) *[TBD]*.
+Closed list. Future capabilities chosen from the **Vercel**, **GitHub**, or **Microsoft** ecosystems unless the constitution is amended.
 
-### Standard Platform
+| Layer | Tool |
+|-------|------|
+| App framework | Next.js + TypeScript (strict) |
+| Styling | Tailwind CSS |
+| Primitives | Radix via shadcn/ui |
+| Component dev / test | Storybook (+ Storybook MCP, local-only) |
+| Non-UI tests | Vitest |
+| End-to-end tests | Playwright (+ Playwright MCP) |
+| Hosting + deploy | Vercel |
+| Source + CI | GitHub + GitHub Actions |
+| Design source | Figma |
+| Agent harness | Claude Code |
+| Orchestration | LangGraph |
 
-Use the Standard Platform as a tool router. The Signal is the task that needs action; the Key is the technology you must use to deliver on the action; the Detail is the link to how to use the technology.
+How to use each is what 2026 agents already know — the binding signal is the *what*, captured here and in the constitution.
 
-| Category | Signal | Key | Detail |
-|----------|--------|-----|--------|
-| Core | Building an application page or route | **Next.js** | [`docs/technology/next-js.md`](docs/technology/next-js.md) |
-| Core | Writing typed code | **TypeScript** | [`docs/technology/typescript.md`](docs/technology/typescript.md) |
-| Core | Deploying the application | **Vercel** | [`docs/technology/vercel.md`](docs/technology/vercel.md) |
-| Core | Hosting source + collaboration | **GitHub** | [`docs/technology/github.md`](docs/technology/github.md) |
-| Core | Running CI on every push | **GitHub Actions** | [`docs/technology/github-actions.md`](docs/technology/github-actions.md) |
-| Frontend | Styling an element | **Tailwind CSS** | [`docs/technology/tailwind.md`](docs/technology/tailwind.md) |
-| Frontend | Composing primitives (dialog, menu, tooltip, etc.) | **Radix** via **shadcn/ui** | [`docs/technology/radix-shadcn.md`](docs/technology/radix-shadcn.md) |
-| Frontend | Developing and visually testing components in isolation | **Storybook** | [`docs/technology/storybook.md`](docs/technology/storybook.md) |
-| Frontend | Design source of truth | **Figma** | [`docs/technology/figma.md`](docs/technology/figma.md) |
-| Quality | Verifying UI behaviour end-to-end | **Playwright** | [`docs/technology/playwright.md`](docs/technology/playwright.md) |
-| Quality | Enforcing type correctness | **TypeScript strict** | [`docs/technology/typescript.md`](docs/technology/typescript.md) |
-| Quality | Verifying non-UI logic | **Vitest** | [`docs/technology/vitest.md`](docs/technology/vitest.md) |
-| AI Tooling | IDE-embedded chat and scoped edits | **GitHub Copilot** | [`docs/technology/github-copilot.md`](docs/technology/github-copilot.md) |
-| AI Tooling | Agent-driven repo operations | **Claude Code** | [`docs/technology/claude-code.md`](docs/technology/claude-code.md) |
-| AI Tooling | Orchestrating multi-step agent workflows (extraction ceremonies, verification gates) | **LangGraph** | [`docs/technology/langgraph.md`](docs/technology/langgraph.md) |
-| AI Tooling | Generating UI from a prompt or Figma frame | **v0** | [`docs/technology/v0.md`](docs/technology/v0.md) |
-| AI Tooling | Looking up framework or Vercel documentation | **Next.js DevTools MCP**, **Vercel MCP** | [`docs/technology/next-js-devtools-mcp.md`](docs/technology/next-js-devtools-mcp.md), [`docs/technology/vercel-mcp.md`](docs/technology/vercel-mcp.md) |
-| AI Tooling | Looking up Microsoft / Azure documentation | **Microsoft Docs MCP** | [`docs/technology/microsoft-docs-mcp.md`](docs/technology/microsoft-docs-mcp.md) |
-| AI Tooling | Inspecting a running page (DOM, network, logs) | **Chrome DevTools MCP** | [`docs/technology/chrome-devtools-mcp.md`](docs/technology/chrome-devtools-mcp.md) |
-| AI Tooling | Automating a browser (scripted interactions) | **Playwright MCP** | [`docs/technology/playwright-mcp.md`](docs/technology/playwright-mcp.md) |
-| AI Tooling | Driving Storybook stories and reading component state from an agent | **Storybook MCP** | [`docs/technology/storybook-mcp.md`](docs/technology/storybook-mcp.md) |
-| Operations | Measuring site usage | **Vercel Analytics** | [`docs/technology/vercel-analytics.md`](docs/technology/vercel-analytics.md) |
-| Operations | Capturing runtime logs and errors | **Vercel runtime observability** | [`docs/technology/vercel-runtime-observability.md`](docs/technology/vercel-runtime-observability.md) |
-| Operations | Installing and managing dependencies | **npm** | [`docs/technology/npm.md`](docs/technology/npm.md) |
+## Workflow
 
-Future capabilities (auth, payments, CMS, richer observability) will be chosen from the **Vercel**, **GitHub**, or **Microsoft** ecosystems. This is the binding constraint — specific tools are selected when the need arises, not speculatively.
+Spec Kit owns Stages 1–5; Crank-specific Stages 6–12 live in [`docs/workflow.md`](docs/workflow.md).
 
-### Engineering Practices
-
-- **UI:** Atomic Design for component structure; Storybook for component-level tests (functionality, theme application, W3C accessibility); Playwright for end-to-end testing of the assembled product against business requirements.
-- **Non-UI:** SOLID for module design; Vitest for unit testing.
-- **Test-Driven Development:** tests precede code; red → green → refactor; applied recursively so every composed unit is built from already-tested smaller units.
-
-### Workflow
-
-The workflow runs through **GitHub Spec Kit** slash commands for Stages 1–5, and Crank-specific stages for 6–12. The Spec Kit constitution at [`.specify/memory/constitution.md`](.specify/memory/constitution.md) is binding — it encodes the Standard Platform, the Story-as-component / Feature-as-business-process model, and the Storybook-before-Playwright test ladder.
-
-| Spec Kit slash command | Replaces / executes Crank stage |
-|------------------------|----------------------------------|
-| [`/speckit.constitution`](.claude/commands/speckit.constitution.md) | Confirms binding constraints before any spec work |
+| Slash command | Replaces / executes |
+|---------------|---------------------|
+| [`/speckit.constitution`](.claude/commands/speckit.constitution.md) | Confirm binding constraints before any spec work |
 | [`/speckit.specify`](.claude/commands/speckit.specify.md) | Stages 1–3 (Scope → Elaboration → Requirements) → `specs/[id]/spec.md` |
-| [`/speckit.plan`](.claude/commands/speckit.plan.md) | Stage 4 (UI/UX where applicable) + Standard Platform tool selection → `specs/[id]/plan.md` |
-| [`/speckit.tasks`](.claude/commands/speckit.tasks.md) | Stage 5 (Stories + Tasks) — Story-as-component, dependencies declared → `specs/[id]/tasks.md` |
+| [`/speckit.plan`](.claude/commands/speckit.plan.md) | Stage 4 + Standard Platform tool selection → `specs/[id]/plan.md` |
+| [`/speckit.tasks`](.claude/commands/speckit.tasks.md) | Stage 5 (Stories + Tasks) → `specs/[id]/tasks.md` |
 | [`/speckit.implement`](.claude/commands/speckit.implement.md) | Stages 6–8 (Red Tests → Recursive Build → Local Verification) |
 
-Stages 9–12 (Pull Request → Dual-AC Verification → Review → Merge+Deploy+Observe) remain Crank-specific because they encode Vercel preview verification and dual-AC review discipline that Spec Kit does not cover. Use the Workflow table below to determine where you are in those stages. Scan Signals top-down; the first match is the current stage.
+Stages 9–12 (PR → Dual-AC → Review → Merge+Deploy+Observe) run by hand against [`docs/workflow.md`](docs/workflow.md).
 
-| # | Signal | Key | Detail |
-|---|--------|-----|--------|
-| 1 | No Scope document exists | **Scope** | [`docs/workflow/scope.md`](docs/workflow/scope.md) |
-| 2 | Scope exists; no Elaboration | **Elaboration** | [`docs/workflow/elaboration.md`](docs/workflow/elaboration.md) |
-| 3 | Elaboration exists; no Requirement with goal-level AC | **Requirements** | [`docs/workflow/requirements.md`](docs/workflow/requirements.md) |
-| 4 | Requirement needs UI; no design Story or Figma source | **UI/UX** *(conditional)* | [`docs/workflow/ui-ux.md`](docs/workflow/ui-ux.md) |
-| 5 | Requirement exists; no decomposed Stories with technical AC | **Stories + Tasks** | [`docs/workflow/stories-tasks.md`](docs/workflow/stories-tasks.md) |
-| 6 | Story exists; its named test file absent | **Red Tests** | [`docs/workflow/red-tests.md`](docs/workflow/red-tests.md) |
-| 7 | Test exists and fails; named artifact absent or incomplete | **Recursive Build** | [`docs/workflow/recursive-build.md`](docs/workflow/recursive-build.md) |
-| 8 | All tests green; type-check / lint / build not run clean | **Local Verification** | [`docs/workflow/local-verification.md`](docs/workflow/local-verification.md) |
-| 9 | Clean locally; no PR open for this branch | **Pull Request** | [`docs/workflow/pull-request.md`](docs/workflow/pull-request.md) |
-| 10 | PR open with green CI; no verification notes referencing both AC | **Dual-AC Verification** | [`docs/workflow/dual-ac-verification.md`](docs/workflow/dual-ac-verification.md) |
-| 11 | PR verified; not yet approved | **Review** | [`docs/workflow/review.md`](docs/workflow/review.md) |
-| 12 | PR approved; not merged / observability not resumed | **Merge + Deploy + Observe** | [`docs/workflow/merge-deploy-observe.md`](docs/workflow/merge-deploy-observe.md) |
+## Test ladder (the discipline)
 
-### Documentation
+The non-obvious rule the constitution enforces:
 
-Intent artifacts — Features, Stories, Tasks — live as markdown under [`intent/`](intent/), authored for humans and consumed by agents. Upstream design sources (Figma, Notion, and similar) and downstream delivery artifacts are out of scope for this directory; only intent lives here. Intent is locked once authored: changes produce new artifacts, not edits to old ones. Reference material and per-tool how-to live separately under [`docs/`](docs/) — that directory has a different, revisable lifecycle.
+- **Story = component** → tested in **Storybook** (functionality, theme, W3C a11y).
+- **Feature = business process** → tested in **Playwright** end-to-end.
+- **Non-UI** → **Vitest**.
+- **Storybook-green precedes Playwright-green; never the reverse.** A Playwright failure against an unverified component cannot be localized.
 
-Directory structure. Functional map for agent navigation, not a cosmetic tree. Binding specification lives under [`intent/`](intent/); reference reading lives under [`docs/`](docs/) — different lifecycles, different rules.
+## Lock-once
 
-| Path | Contains | When to read |
-|------|----------|--------------|
-| [`intent/schemas/`](intent/schemas/) *[TBD]* | JSON schemas for intent artifacts | Before authoring or validating any Feature, Story, or Task |
-| [`intent/features/`](intent/features/) *[TBD]* | Feature markdown files | When scoping work or identifying a parent for a Story |
-| [`intent/stories/`](intent/stories/) *[TBD]* | Story markdown files | When decomposing into Tasks or writing Red Tests |
-| [`intent/tasks/`](intent/tasks/) *[TBD]* | Task markdown files | When implementing, referencing in PRs or commits |
-| [`docs/agents/`](docs/agents/) | Canonical agent conventions — session-start, tool dispatch, context compaction, ambiguity, citation, lock-once | On session start, and any time a platform router (`CLAUDE.md`, `AGENTS.md`, Copilot, LangGraph node) defers here |
-| [`docs/technology/`](docs/technology/) | Per-tool and per-stage reference docs, one-off technical sketches | When a Standard Platform or Workflow link resolves here |
-| [`orchestration/`](orchestration/) | LangGraph graph definitions; Crank cognitive-profile roster | When authoring or running an agent workflow (extraction, verification, approval) |
-| [`infrastructure/`](infrastructure/) *[TBD]* | Deployment and environment configuration; IaC when it lands | When changing deployment behaviour or environment setup |
-| [`src/`](src/) *[TBD]* | Application source | When implementing a Task that produces code |
+Specs, plans, and task lists committed under `specs/` are immutable post-merge. Changes produce a superseding spec under a new feature ID; the prior is archived, not edited.
 
-Documents. Scan Signals top-down; the first match names the artifact type you need.
+## Next
 
-| Signal | Key | Detail |
-|--------|-----|--------|
-| Need to understand what we're building at scope level | **Feature** | [`intent/features/`](intent/features/) *[TBD]* |
-| Need user-facing behaviour with acceptance criteria | **Story** | [`intent/stories/`](intent/stories/) *[TBD]* |
-| Need the next executable unit of work | **Task** | [`intent/tasks/`](intent/tasks/) *[TBD]* |
-| Need to validate or author an intent artifact | **Schema** | [`intent/schemas/`](intent/schemas/) *[TBD]* |
-
-Schemas. The schema layer made navigable; each Key points at the JSON file that governs that artifact type.
-
-| Signal | Key | Detail |
-|--------|-----|--------|
-| Authoring or validating a Feature | **`feature.schema.json`** | [`intent/schemas/feature.schema.json`](intent/schemas/feature.schema.json) *[TBD]* |
-| Authoring or validating a Story | **`story.schema.json`** | [`intent/schemas/story.schema.json`](intent/schemas/story.schema.json) *[TBD]* |
-| Authoring or validating a Task | **`task.schema.json`** | [`intent/schemas/task.schema.json`](intent/schemas/task.schema.json) *[TBD]* |
-
-## TODO
-
-Outstanding items as of this revision. Each entry points at the placeholder file where work continues, the parked concept awaiting the right moment, or the open decision to settle.
-
-**Placeholder files to materialise**
-- [`docs/agents/`](docs/agents/) — canonical agent convention bodies (session-start, tool dispatch, context compaction, ambiguity, citation, lock-once). Router exists; each sub-doc is *[TBD]*.
-- [`CLAUDE.md`](CLAUDE.md) — Claude-Code-specific layer only (hooks, skills, subagents, commands, MCP). Router established; platform-specific body *[TBD]*.
-- [`.claude/settings.json`](.claude/settings.json) — permissions, hooks, model preferences.
-- [`.claude/skills/`](.claude/skills/) — custom skills (Agent and Instruction definitions, daisy-chain target from Technology Principles).
-- [`.claude/agents/`](.claude/agents/) — subagent definitions when a task warrants one.
-- [`.claude/commands/`](.claude/commands/) — custom slash commands for recurring orchestrations.
-- [`.github/copilot-instructions.md`](.github/copilot-instructions.md) — Copilot-specific body (chat context preferences, agent-mode scoping, IDE integration notes). Router established; inline completion is not in scope, so no resident duplication is maintained.
-- [`.github/pull_request_template.md`](.github/pull_request_template.md) — enforces Phase 10 dual-AC verification.
-- [`.github/ISSUE_TEMPLATE/`](.github/ISSUE_TEMPLATE/) — intake templates for Scope, Requirement, Story.
-
-**Linked documents still to author** *(ordered by load-bearing weight)*
-- [`docs/technology/reproducibility.md`](docs/technology/reproducibility.md) — the most load-bearing unresolved piece. Defines per-type reproducibility mechanisms, the intent vs. delivery artifact distinction, Story/Task completion criteria, and the no-backout-in-application rule. Anchors the four-tier knowledge flow (Raw Notes → Insights → Intent → Delivery), names the extraction ceremony as a human-gated ritual that happens outside the repo, and makes the lock-once principle testable.
-- Intent schemas in [`intent/schemas/`](intent/schemas/) — `feature.schema.json`, `story.schema.json`, `task.schema.json`. The extraction contract: schema shape determines upstream chunk taxonomy. Includes the `source_ref` field that pins each artifact to its upstream extraction source. `story.schema.json` must encode that a Story is component-shaped (Storybook-testable) and may declare dependencies on other Stories; `feature.schema.json` must encode that a Feature is a business process (Playwright-tested) composing one or more Stories. See [`docs/workflow/stories-tasks.md`](docs/workflow/stories-tasks.md) for the model.
-- Seed documents under [`intent/`](intent/) — first Feature, Story, and Task once authoring governance is settled.
-- Extraction-ceremony graph under [`orchestration/graphs/`](orchestration/) — a LangGraph state machine governing how Tier 2 Insights promote into Tier 3 intent artifacts. First concrete consumer of the Cognitive Profile Compiler's output.
-- Crank agent roster under [`orchestration/profiles/`](orchestration/) — cognitive profiles per altitude band (Executor through Principal) and per concern lens (Security, Performance, Accessibility).
-- Engineering Practices elaboration if depth grows.
-
-**Parked concepts (introduce when the project needs them)**
-- Marketing brand kit — linked document; required input for UI/UX and content work.
-- Measurement / success resources — links defining how business outcomes are measured.
-- Cognitive Profile Compiler — a separate repository that translates 12-dimension cognitive profiles into LangGraph node configurations. Crank is a downstream consumer, not an owner.
-- Semantic router / intent-classified content map — Azure AI Search-based architecture for LLM-at-the-front intent classification feeding deterministic retrieval. Sketch archived in [`docs/technology/chatbot-semantic-router.md`](docs/technology/chatbot-semantic-router.md); revisit if a chatbot or guided-navigation feature enters scope much later in the project.
-
-**Open decisions**
-- Whether to extend the signal→key pattern to Engineering Practices for consistency.
-- Top-level "done" definition for the project as a whole.
-- Sequencing guidance for Stories across the three Business Principles tiers.
+Author the first Feature: `/speckit.constitution` then `/speckit.specify <feature-id> "<problem>"`. The system has no work to execute against until at least one spec exists.
