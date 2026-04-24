@@ -59,7 +59,17 @@ Future capabilities (auth, payments, CMS, richer observability) will be chosen f
 
 ### Workflow
 
-Use the Workflow to determine where the requested action exists. Scan Signals top-down; the first match is the current stage. The Key names the stage; the Detail is the link to understand that stage. When ambiguity surfaces, walk up the chain to the stage that owns the missing artifact.
+The workflow runs through **GitHub Spec Kit** slash commands for Stages 1–5, and Crank-specific stages for 6–12. The Spec Kit constitution at [`.specify/memory/constitution.md`](.specify/memory/constitution.md) is binding — it encodes the Standard Platform, the Story-as-component / Feature-as-business-process model, and the Storybook-before-Playwright test ladder.
+
+| Spec Kit slash command | Replaces / executes Crank stage |
+|------------------------|----------------------------------|
+| [`/speckit.constitution`](.claude/commands/speckit.constitution.md) | Confirms binding constraints before any spec work |
+| [`/speckit.specify`](.claude/commands/speckit.specify.md) | Stages 1–3 (Scope → Elaboration → Requirements) → `specs/[id]/spec.md` |
+| [`/speckit.plan`](.claude/commands/speckit.plan.md) | Stage 4 (UI/UX where applicable) + Standard Platform tool selection → `specs/[id]/plan.md` |
+| [`/speckit.tasks`](.claude/commands/speckit.tasks.md) | Stage 5 (Stories + Tasks) — Story-as-component, dependencies declared → `specs/[id]/tasks.md` |
+| [`/speckit.implement`](.claude/commands/speckit.implement.md) | Stages 6–8 (Red Tests → Recursive Build → Local Verification) |
+
+Stages 9–12 (Pull Request → Dual-AC Verification → Review → Merge+Deploy+Observe) remain Crank-specific because they encode Vercel preview verification and dual-AC review discipline that Spec Kit does not cover. Use the Workflow table below to determine where you are in those stages. Scan Signals top-down; the first match is the current stage.
 
 | # | Signal | Key | Detail |
 |---|--------|-----|--------|
