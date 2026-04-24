@@ -34,6 +34,8 @@ The repo is a closed platform — these are the only tools approved for use. Fut
 
 Detail per tool: [`docs/technology/`](../../docs/technology/).
 
+**Version policy.** Every tool above carries an explicit version. When a version has not been picked, default to **latest current stable** at the time of selection and record it. Floating ranges (`latest`, `^x`, `*`) are not permitted for Standard Platform tools — they break reproducibility. Version bumps are deliberate intent changes (lock-once: supersede, do not silently mutate).
+
 ## Test ladder (binding sequencing rule)
 
 This is the core discipline that distinguishes Crank from generic spec-driven development:

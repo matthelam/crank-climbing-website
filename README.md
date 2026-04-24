@@ -34,6 +34,8 @@ Closed list. Future capabilities chosen from the **Vercel**, **GitHub**, or **Mi
 
 How to use each is what 2026 agents already know — the binding signal is the *what*, captured here and in the constitution.
 
+**Version policy.** Pin every tool above to an explicit version (default: latest current stable when not yet picked). No floating ranges. Bumps are deliberate intent changes — lock-once. Detail in the constitution.
+
 ## Workflow
 
 Spec Kit owns Stages 1–5; Crank-specific Stages 6–12 live in [`docs/workflow.md`](docs/workflow.md).
