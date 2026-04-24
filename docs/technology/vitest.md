@@ -8,6 +8,8 @@ Detail page for the Standard Platform **Vitest** row — Signal: "Verifying non-
 
 Use Vitest to verify non-UI logic — utilities, server helpers, pure functions, API handlers. Vitest is the Vite-native testing framework with out-of-the-box TypeScript/JSX support, Jest-compatible `expect`/mocking APIs, and instant watch mode (HMR for tests).
 
+UI component tests do not belong here — use **Storybook** for component-level behaviour, theming, and accessibility, and **Playwright** for end-to-end behaviour across composed routes.
+
 ## Common patterns
 
 - Writing tests with `describe` / `it` / `expect` — [Vitest docs](https://vitest.dev/guide/)

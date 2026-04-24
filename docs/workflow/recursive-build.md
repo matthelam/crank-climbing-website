@@ -8,6 +8,8 @@ The Recursive Build implements the smallest unit that turns the Red Test green, 
 
 This discipline is what makes Stage 10's Dual-AC Verification auditable. If the build respects recursion, each green test proves its unit works, and composed units inherit correctness from composed tests. If the build violates recursion — if it composes untested units — then greenness at the top does not prove correctness underneath, and a later regression cannot be localized.
 
+The recursion follows the test ladder: every Component Story is Storybook-green before it composes into another Story; a Feature's Playwright test runs only after every Story it depends on is green. Storybook-green precedes Playwright-green; never the reverse. A Playwright failure against an unverified component cannot be localized, which defeats the purpose of the ladder.
+
 This is also the stage where the bulk of Standard Platform tools come into play. The Red Test fixed the contract; this stage is where the contract is met.
 
 ## Enter / Exit

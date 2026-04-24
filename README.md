@@ -31,6 +31,7 @@ Use the Standard Platform as a tool router. The Signal is the task that needs ac
 | Core | Running CI on every push | **GitHub Actions** | [`docs/technology/github-actions.md`](docs/technology/github-actions.md) |
 | Frontend | Styling an element | **Tailwind CSS** | [`docs/technology/tailwind.md`](docs/technology/tailwind.md) |
 | Frontend | Composing primitives (dialog, menu, tooltip, etc.) | **Radix** via **shadcn/ui** | [`docs/technology/radix-shadcn.md`](docs/technology/radix-shadcn.md) |
+| Frontend | Developing and visually testing components in isolation | **Storybook** | [`docs/technology/storybook.md`](docs/technology/storybook.md) |
 | Frontend | Design source of truth | **Figma** | [`docs/technology/figma.md`](docs/technology/figma.md) |
 | Quality | Verifying UI behaviour end-to-end | **Playwright** | [`docs/technology/playwright.md`](docs/technology/playwright.md) |
 | Quality | Enforcing type correctness | **TypeScript strict** | [`docs/technology/typescript.md`](docs/technology/typescript.md) |
@@ -43,6 +44,7 @@ Use the Standard Platform as a tool router. The Signal is the task that needs ac
 | AI Tooling | Looking up Microsoft / Azure documentation | **Microsoft Docs MCP** | [`docs/technology/microsoft-docs-mcp.md`](docs/technology/microsoft-docs-mcp.md) |
 | AI Tooling | Inspecting a running page (DOM, network, logs) | **Chrome DevTools MCP** | [`docs/technology/chrome-devtools-mcp.md`](docs/technology/chrome-devtools-mcp.md) |
 | AI Tooling | Automating a browser (scripted interactions) | **Playwright MCP** | [`docs/technology/playwright-mcp.md`](docs/technology/playwright-mcp.md) |
+| AI Tooling | Driving Storybook stories and reading component state from an agent | **Storybook MCP** | [`docs/technology/storybook-mcp.md`](docs/technology/storybook-mcp.md) |
 | Operations | Measuring site usage | **Vercel Analytics** | [`docs/technology/vercel-analytics.md`](docs/technology/vercel-analytics.md) |
 | Operations | Capturing runtime logs and errors | **Vercel runtime observability** | [`docs/technology/vercel-runtime-observability.md`](docs/technology/vercel-runtime-observability.md) |
 | Operations | Installing and managing dependencies | **npm** | [`docs/technology/npm.md`](docs/technology/npm.md) |
@@ -51,7 +53,7 @@ Future capabilities (auth, payments, CMS, richer observability) will be chosen f
 
 ### Engineering Practices
 
-- **UI:** Atomic Design for component structure; Playwright for end-to-end testing.
+- **UI:** Atomic Design for component structure; Storybook for component-level tests (functionality, theme application, W3C accessibility); Playwright for end-to-end testing of the assembled product against business requirements.
 - **Non-UI:** SOLID for module design; Vitest for unit testing.
 - **Test-Driven Development:** tests precede code; red → green → refactor; applied recursively so every composed unit is built from already-tested smaller units.
 
@@ -126,7 +128,7 @@ Outstanding items as of this revision. Each entry points at the placeholder file
 
 **Linked documents still to author** *(ordered by load-bearing weight)*
 - [`docs/technology/reproducibility.md`](docs/technology/reproducibility.md) — the most load-bearing unresolved piece. Defines per-type reproducibility mechanisms, the intent vs. delivery artifact distinction, Story/Task completion criteria, and the no-backout-in-application rule. Anchors the four-tier knowledge flow (Raw Notes → Insights → Intent → Delivery), names the extraction ceremony as a human-gated ritual that happens outside the repo, and makes the lock-once principle testable.
-- Intent schemas in [`intent/schemas/`](intent/schemas/) — `feature.schema.json`, `story.schema.json`, `task.schema.json`. The extraction contract: schema shape determines upstream chunk taxonomy. Includes the `source_ref` field that pins each artifact to its upstream extraction source.
+- Intent schemas in [`intent/schemas/`](intent/schemas/) — `feature.schema.json`, `story.schema.json`, `task.schema.json`. The extraction contract: schema shape determines upstream chunk taxonomy. Includes the `source_ref` field that pins each artifact to its upstream extraction source. `story.schema.json` must encode that a Story is component-shaped (Storybook-testable) and may declare dependencies on other Stories; `feature.schema.json` must encode that a Feature is a business process (Playwright-tested) composing one or more Stories. See [`docs/workflow/stories-tasks.md`](docs/workflow/stories-tasks.md) for the model.
 - Seed documents under [`intent/`](intent/) — first Feature, Story, and Task once authoring governance is settled.
 - Extraction-ceremony graph under [`orchestration/graphs/`](orchestration/) — a LangGraph state machine governing how Tier 2 Insights promote into Tier 3 intent artifacts. First concrete consumer of the Cognitive Profile Compiler's output.
 - Crank agent roster under [`orchestration/profiles/`](orchestration/) — cognitive profiles per altitude band (Executor through Principal) and per concern lens (Security, Performance, Accessibility).

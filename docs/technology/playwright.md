@@ -6,7 +6,11 @@ Detail page for the Standard Platform **Playwright** row — Signal: "Verifying 
 
 ## Rule
 
-Use Playwright as the sole end-to-end test runner for this Next.js repo. Verify behaviour through user-visible output (rendered DOM, navigation, network) rather than implementation details. In CI, run on Linux with only the browsers under test installed.
+Use Playwright as the sole end-to-end test runner for this Next.js repo. Playwright owns the assembled product: it validates that the website delivers on business requirements end-to-end across composed routes — navigation, data loading, cross-component flows, business-process outcomes. It is the only layer that knows the final product.
+
+Verify behaviour through user-visible output (rendered DOM, navigation, network) rather than implementation details. In CI, run on Linux with only the browsers under test installed.
+
+Component-scoped tests — props, internal state, theme application, component-level a11y — belong in **Storybook**, not here. If a Playwright test only exercises one component in isolation, it should have been a story; move it.
 
 ## Common patterns
 

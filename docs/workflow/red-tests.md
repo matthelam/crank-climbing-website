@@ -23,8 +23,11 @@ A failing test file at the deterministic path derived from the Story identifier.
 
 ## Agent protocol
 
-1. Read the Story's technical AC.
-2. Route the test type — Vitest vs. Playwright — by the AC shape (behavior vs. user-facing flow).
+1. Read the Story's technical AC and its declared type (Component Story, Feature, or non-UI Task — see [stories-tasks.md](stories-tasks.md)).
+2. Route the test framework by Story type:
+   - **Component Story** → Storybook (functionality, theme application, W3C accessibility). The Red Test is a `.stories.tsx` file with a failing `play` function.
+   - **Feature** (business process across the assembled product) → Playwright. The Red Test is a `.spec.ts` against composed routes.
+   - **Non-UI Task** → Vitest. The Red Test is a `.test.ts` against the unit under test.
 3. Derive the test file path deterministically from the Story identifier.
 4. Draft the test; assert the AC.
 5. Run the test. Confirm red; confirm the failure message points at missing/incomplete code, not at infrastructure.
