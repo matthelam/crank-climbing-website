@@ -51,6 +51,8 @@ Use the Standard Platform as a tool router. The Signal is the task that needs ac
 
 Future capabilities (auth, payments, CMS, richer observability) will be chosen from the **Vercel**, **GitHub**, or **Microsoft** ecosystems. This is the binding constraint — specific tools are selected when the need arises, not speculatively.
 
+**Version policy.** Every Standard Platform tool must carry an explicit version. When a version has not been picked, default to the **latest current stable** release at the time of selection and record it. Floating ranges (`latest`, `^x`, `*`) are not acceptable for Standard Platform Keys — they defeat reproducibility. Version bumps are deliberate intent changes and follow the lock-once discipline (supersede, do not silently mutate). A Version column will be added to the Standard Platform table once the first set of versions is chosen.
+
 ### Engineering Practices
 
 - **UI:** Atomic Design for component structure; Storybook for component-level tests (functionality, theme application, W3C accessibility); Playwright for end-to-end testing of the assembled product against business requirements.
