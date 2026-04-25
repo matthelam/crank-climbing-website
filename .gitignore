@@ -6,6 +6,20 @@ node_modules/
 out/
 dist/
 
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# Bootstrap report draft area (committed reports stay; transient stays out)
+.bootstrap-tmp/
+
+# Maintenance proposals (lock-once requires PR review, not silent commits)
+*.proposal
+
 # Environment
 .env.local
 .env*.local

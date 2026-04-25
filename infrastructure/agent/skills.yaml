@@ -1,0 +1,106 @@
+# yaml-language-server: $schema=../_schemas/agent-skills.schema.json
+# Declared state: Claude Code skills, subagents, and slash commands required by the scaffold.
+# Bootstrap layer asserts each one is present at .claude/skills/<name>/SKILL.md;
+# generate-skills.ps1 regenerates frontmatter from this manifest + bindings.yaml.
+
+skills:
+  # ── Layer skills (one per layer) ────────────────────────────────────────
+  - name: layer-00-bootstrap
+    purpose: Provision tools, infra, accounts on a fresh clone
+    layer_id: "00-bootstrap"
+    shell: powershell
+    disable_model_invocation: true
+
+  - name: layer-01-business-decomposition
+    purpose: Extract business functions from existing site + brief
+    layer_id: "01-business-decomposition"
+    shell: powershell
+    disable_model_invocation: true
+
+  - name: layer-02-brand-kit
+    purpose: Synthesize palette, typography, motion, copy voice
+    layer_id: "02-brand-kit"
+    shell: powershell
+    disable_model_invocation: true
+
+  - name: layer-03-ux
+    purpose: Generate UX stories and screen-level designs
+    layer_id: "03-ux"
+    shell: powershell
+    disable_model_invocation: true
+
+  - name: layer-04-scope
+    purpose: Lock the scope document for this rebuild
+    layer_id: "04-scope"
+    shell: powershell
+    disable_model_invocation: true
+
+  - name: layer-05-elaboration
+    purpose: Risk-driven analysis of the locked scope
+    layer_id: "05-elaboration"
+    shell: powershell
+    disable_model_invocation: true
+
+  - name: layer-06-requirements
+    purpose: Author requirements with goal-level acceptance criteria
+    layer_id: "06-requirements"
+    shell: powershell
+    disable_model_invocation: true
+
+  - name: layer-07-stories-tasks
+    purpose: Decompose into component-shaped stories and tasks
+    layer_id: "07-stories-tasks"
+    shell: powershell
+    disable_model_invocation: true
+
+  - name: layer-08-red-tests
+    purpose: Author failing tests before implementation
+    layer_id: "08-red-tests"
+    shell: powershell
+    disable_model_invocation: true
+
+  - name: layer-09-recursive-build
+    purpose: Implement leaf-most missing artifact until tests green
+    layer_id: "09-recursive-build"
+    shell: powershell
+    disable_model_invocation: true
+
+  - name: layer-10-local-verification
+    purpose: Type-check / lint / build clean
+    layer_id: "10-local-verification"
+    shell: powershell
+    disable_model_invocation: true
+
+  - name: layer-11-pull-request
+    purpose: Open the PR
+    layer_id: "11-pull-request"
+    shell: powershell
+    disable_model_invocation: true
+
+  - name: layer-12-dual-ac-verification
+    purpose: Verify story + feature AC, record notes
+    layer_id: "12-dual-ac-verification"
+    shell: powershell
+    disable_model_invocation: true
+
+  - name: layer-13-review
+    purpose: Code review and approval
+    layer_id: "13-review"
+    shell: powershell
+    disable_model_invocation: true
+
+  - name: layer-14-merge-deploy-observe
+    purpose: Merge, deploy, resume observability
+    layer_id: "14-merge-deploy-observe"
+    shell: powershell
+    disable_model_invocation: true
+
+  - name: layer-M-maintenance
+    purpose: Detect drift; propose superseding bindings / IaC
+    layer_id: "M-maintenance"
+    shell: powershell
+    disable_model_invocation: true
+
+subagents: []
+
+commands: []

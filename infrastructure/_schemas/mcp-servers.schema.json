@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crank.dev/infrastructure/mcp-servers.schema.json",
+  "title": "MCP Servers Declared State",
+  "description": "MCP servers that must be configured for Claude Code on the local VM. Each entry references a bindings.yaml capability of category=ai_tooling with install.method=mcp_config.",
+  "type": "object",
+  "required": ["servers"],
+  "additionalProperties": false,
+  "properties": {
+    "servers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["binding_capability", "scope"],
+        "additionalProperties": false,
+        "properties": {
+          "binding_capability": { "type": "string" },
+          "scope": { "enum": ["user", "project", "local"], "description": "claude mcp add scope." },
+          "transport": { "enum": ["stdio", "http", "sse"], "default": "stdio" },
+          "command": { "type": "string" },
+          "args": { "type": "array", "items": { "type": "string" } },
+          "env_var_refs": {
+            "type": "array",
+            "description": "Names of env vars the server needs at runtime (sourced from .env.local).",
+            "items": { "type": "string" }
+          },
+          "required": { "type": "boolean", "default": true }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,268 @@
+# Crank Scaffold Bindings Manifest
+#
+# THIS IS THE ONE FILE YOU EDIT WHEN CLONING THE SCAFFOLD FOR A NEW WEBSITE.
+#
+# Capability ids are stable; tool choices behind them swap freely.
+# Layers and orchestration consume this manifest at runtime; README and
+# docs/technology/* are regenerated from it (see scripts/generate-readme.ps1
+# and scripts/generate-tech-docs.ps1).
+#
+# Version policy: every binding carries an explicit version. Floating ranges
+# (latest, ^x, *) are not acceptable. Bumps are deliberate and produce a
+# superseding entry, never an in-place mutation.
+
+# yaml-language-server: $schema=./bindings.schema.json
+schema_version: 1
+
+scaffold:
+  name: crank-climbing-website
+  clone_of: null
+
+capabilities:
+
+  # ── Core ──────────────────────────────────────────────────────────────────
+
+  app_routing:
+    category: core
+    description: Building an application page or route
+    ai_binding: { tool: next.js, version: "15.5.0", docs_url: "https://nextjs.org/docs" }
+    install:
+      method: npm
+      package: next
+      verify_cmd: "npx --yes next --version"
+      pin_source: package.json
+    last_checked: "2026-04-25"
+
+  typed_code:
+    category: core
+    description: Writing typed code
+    ai_binding: { tool: typescript, version: "5.6.3", docs_url: "https://www.typescriptlang.org/docs" }
+    install:
+      method: npm
+      package: typescript
+      verify_cmd: "npx --yes tsc --version"
+      pin_source: package.json
+    last_checked: "2026-04-25"
+
+  hosting:
+    category: core
+    description: Deploying the application
+    ai_binding: { tool: vercel, version: "37.0.0", docs_url: "https://vercel.com/docs" }
+    install:
+      method: npm
+      package: vercel
+      verify_cmd: "vercel --version"
+      pin_source: package.json
+      post_install: "vercel login  # interactive on first run"
+    last_checked: "2026-04-25"
+
+  source_hosting:
+    category: core
+    description: Hosting source and collaboration
+    ai_binding: { tool: github, version: "n/a", docs_url: "https://docs.github.com" }
+    install:
+      method: winget
+      package: GitHub.cli
+      verify_cmd: "gh --version"
+      post_install: "gh auth login  # interactive on first run"
+    last_checked: "2026-04-25"
+
+  ci:
+    category: core
+    description: Running CI on every push
+    ai_binding: { tool: github-actions, version: "n/a", docs_url: "https://docs.github.com/actions" }
+    install:
+      method: manual
+      verify_cmd: "Test-Path .github/workflows"
+    last_checked: "2026-04-25"
+
+  package_manager:
+    category: core
+    description: Installing and managing dependencies
+    ai_binding: { tool: npm, version: "10.9.0", docs_url: "https://docs.npmjs.com" }
+    install:
+      method: winget
+      package: OpenJS.NodeJS.LTS
+      verify_cmd: "npm --version"
+    last_checked: "2026-04-25"
+
+  # ── Frontend ──────────────────────────────────────────────────────────────
+
+  styling:
+    category: frontend
+    description: Styling an element
+    ai_binding: { tool: tailwindcss, version: "4.0.0", docs_url: "https://tailwindcss.com/docs" }
+    install: { method: npm, package: tailwindcss, verify_cmd: "npx --yes tailwindcss --help", pin_source: package.json }
+    last_checked: "2026-04-25"
+
+  primitives:
+    category: frontend
+    description: Composing primitives (dialog, menu, tooltip)
+    ai_binding: { tool: radix-via-shadcn, version: "0.9.0", docs_url: "https://ui.shadcn.com/docs" }
+    install: { method: npm, package: "shadcn", verify_cmd: "npx --yes shadcn --version", pin_source: package.json }
+    last_checked: "2026-04-25"
+
+  component_lab:
+    category: frontend
+    description: Developing and visually testing components in isolation
+    ai_binding: { tool: storybook, version: "8.4.0", docs_url: "https://storybook.js.org/docs" }
+    install: { method: npm, package: storybook, verify_cmd: "npx --yes storybook --version", pin_source: package.json }
+    last_checked: "2026-04-25"
+
+  # ── Design ────────────────────────────────────────────────────────────────
+
+  ux_design:
+    category: design
+    description: Generating UX from intent
+    ai_binding: { tool: claude.ai/design, version: "n/a", docs_url: "https://claude.ai/design" }
+    human_binding: { tool: figma, version: "n/a", docs_url: "https://figma.com" }
+    install:
+      method: manual
+      verify_cmd: "Write-Output 'web-based, no local install'"
+    last_checked: "2026-04-25"
+
+  ui_generation:
+    category: design
+    description: Generating UI from a prompt or Figma frame
+    ai_binding: { tool: v0, version: "n/a", docs_url: "https://v0.dev" }
+    install:
+      method: manual
+      verify_cmd: "Write-Output 'web-based'"
+    last_checked: "2026-04-25"
+
+  # ── Quality ───────────────────────────────────────────────────────────────
+
+  e2e_test:
+    category: quality
+    description: Verifying UI behaviour end-to-end
+    ai_binding: { tool: playwright, version: "1.49.0", docs_url: "https://playwright.dev" }
+    install:
+      method: npm
+      package: "@playwright/test"
+      verify_cmd: "npx --yes playwright --version"
+      pin_source: package.json
+      post_install: "npx --yes playwright install"
+    last_checked: "2026-04-25"
+
+  unit_test:
+    category: quality
+    description: Verifying non-UI logic
+    ai_binding: { tool: vitest, version: "2.1.0", docs_url: "https://vitest.dev" }
+    install: { method: npm, package: vitest, verify_cmd: "npx --yes vitest --version", pin_source: package.json }
+    last_checked: "2026-04-25"
+
+  type_check:
+    category: quality
+    description: Enforcing type correctness
+    ai_binding: { tool: typescript-strict, version: "5.6.3", docs_url: "https://www.typescriptlang.org/tsconfig#strict" }
+    install: { method: manual, verify_cmd: "Test-Path tsconfig.json" }
+    last_checked: "2026-04-25"
+
+  # ── AI tooling ────────────────────────────────────────────────────────────
+
+  agent_runtime:
+    category: ai_tooling
+    description: Agent-driven repo operations
+    ai_binding: { tool: claude-code, version: "1.0.0", docs_url: "https://code.claude.com/docs" }
+    install:
+      method: winget
+      package: Anthropic.ClaudeCode
+      verify_cmd: "claude --version"
+    last_checked: "2026-04-25"
+
+  agent_sdk:
+    category: ai_tooling
+    description: Programmatic agent loop callable from orchestrator
+    ai_binding: { tool: claude-agent-sdk-python, version: "0.5.0", docs_url: "https://code.claude.com/docs/en/agent-sdk/overview" }
+    install: { method: pip, package: claude-agent-sdk, verify_cmd: "python -c 'import claude_agent_sdk; print(claude_agent_sdk.__version__)'", pin_source: orchestration/pyproject.toml }
+    last_checked: "2026-04-25"
+
+  orchestrator:
+    category: ai_tooling
+    description: Orchestrating multi-step agent workflows with explicit loops
+    ai_binding: { tool: langgraph, version: "0.4.0", docs_url: "https://langchain-ai.github.io/langgraph/" }
+    install: { method: pip, package: langgraph, verify_cmd: "python -c 'import langgraph; print(langgraph.__version__)'", pin_source: orchestration/pyproject.toml }
+    last_checked: "2026-04-25"
+
+  ide_assistant:
+    category: ai_tooling
+    description: IDE-embedded chat and scoped edits
+    ai_binding: { tool: github-copilot, version: "n/a", docs_url: "https://docs.github.com/copilot" }
+    install: { method: manual, verify_cmd: "Write-Output 'IDE plugin install'" }
+    last_checked: "2026-04-25"
+
+  spec_templates:
+    category: ai_tooling
+    description: Spec/plan/tasks prompt templates (vendored seed content only)
+    ai_binding: { tool: spec-kit-templates, version: "0.8.1", docs_url: "https://github.com/github/spec-kit", notes: "Templates only — Spec Kit CLI and gates are NOT used." }
+    install: { method: vendor, package: "github/spec-kit@v0.8.1", verify_cmd: "Test-Path vendor/spec-kit-templates" }
+    last_checked: "2026-04-25"
+
+  # ── MCP servers ───────────────────────────────────────────────────────────
+
+  mcp_nextjs_devtools:
+    category: ai_tooling
+    description: Next.js framework documentation lookup for agents
+    ai_binding: { tool: next-devtools-mcp, version: "0.3.0", docs_url: "https://github.com/vercel/next-devtools-mcp" }
+    install: { method: mcp_config, verify_cmd: "claude mcp list | Select-String next-devtools" }
+    last_checked: "2026-04-25"
+
+  mcp_vercel:
+    category: ai_tooling
+    description: Vercel docs and project lookup for agents
+    ai_binding: { tool: vercel-mcp, version: "0.2.0", docs_url: "https://vercel.com/docs/mcp" }
+    install: { method: mcp_config, verify_cmd: "claude mcp list | Select-String vercel" }
+    last_checked: "2026-04-25"
+
+  mcp_microsoft_docs:
+    category: ai_tooling
+    description: Microsoft and Azure documentation lookup for agents
+    ai_binding: { tool: microsoft-docs-mcp, version: "0.1.0", docs_url: "https://learn.microsoft.com/mcp" }
+    install: { method: mcp_config, verify_cmd: "claude mcp list | Select-String microsoft" }
+    last_checked: "2026-04-25"
+
+  mcp_chrome_devtools:
+    category: ai_tooling
+    description: Inspect a running page (DOM, network, logs) from an agent
+    ai_binding: { tool: chrome-devtools-mcp, version: "0.4.0", docs_url: "https://github.com/anthropic/chrome-devtools-mcp" }
+    install: { method: mcp_config, verify_cmd: "claude mcp list | Select-String chrome-devtools" }
+    last_checked: "2026-04-25"
+
+  mcp_playwright:
+    category: ai_tooling
+    description: Scripted browser automation from an agent
+    ai_binding: { tool: playwright-mcp, version: "0.5.0", docs_url: "https://github.com/microsoft/playwright-mcp" }
+    install: { method: mcp_config, verify_cmd: "claude mcp list | Select-String playwright" }
+    last_checked: "2026-04-25"
+
+  mcp_storybook:
+    category: ai_tooling
+    description: Drive Storybook stories from an agent
+    ai_binding: { tool: storybook-mcp, version: "0.2.0", docs_url: "https://storybook.js.org/docs/sharing/mcp" }
+    install: { method: mcp_config, verify_cmd: "claude mcp list | Select-String storybook" }
+    last_checked: "2026-04-25"
+
+  # ── Extraction ────────────────────────────────────────────────────────────
+
+  page_extraction:
+    category: extraction
+    description: Extract clean markdown content from a live web page
+    ai_binding: { tool: defuddle, version: "0.6.0", docs_url: "https://github.com/kepano/defuddle" }
+    install: { method: npm, package: defuddle-cli, verify_cmd: "npx --yes defuddle --version", pin_source: package.json }
+    last_checked: "2026-04-25"
+
+  # ── Operations ────────────────────────────────────────────────────────────
+
+  analytics:
+    category: operations
+    description: Measuring site usage
+    ai_binding: { tool: vercel-analytics, version: "1.4.0", docs_url: "https://vercel.com/docs/analytics" }
+    install: { method: npm, package: "@vercel/analytics", verify_cmd: "npm ls @vercel/analytics", pin_source: package.json }
+    last_checked: "2026-04-25"
+
+  observability:
+    category: operations
+    description: Capturing runtime logs and errors
+    ai_binding: { tool: vercel-runtime-observability, version: "n/a", docs_url: "https://vercel.com/docs/observability" }
+    install: { method: manual, verify_cmd: "Write-Output 'configured per-project in Vercel dashboard'" }
+    last_checked: "2026-04-25"

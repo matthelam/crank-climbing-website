@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=../_schemas/mcp-servers.schema.json
+# Declared state: MCP servers configured for Claude Code on the local VM.
+# Each binding_capability references an entry in bindings.yaml of category=ai_tooling
+# with install.method=mcp_config.
+
+servers:
+  - binding_capability: mcp_nextjs_devtools
+    scope: project
+    transport: stdio
+    command: npx
+    args: ["-y", "@vercel/next-devtools-mcp"]
+    required: true
+
+  - binding_capability: mcp_vercel
+    scope: project
+    transport: http
+    command: ""
+    args: []
+    env_var_refs: ["VERCEL_TOKEN"]
+    required: true
+
+  - binding_capability: mcp_microsoft_docs
+    scope: project
+    transport: stdio
+    command: npx
+    args: ["-y", "@microsoft/docs-mcp"]
+    required: true
+
+  - binding_capability: mcp_chrome_devtools
+    scope: project
+    transport: stdio
+    command: npx
+    args: ["-y", "chrome-devtools-mcp"]
+    required: false  # only needed for layers 12, 14
+
+  - binding_capability: mcp_playwright
+    scope: project
+    transport: stdio
+    command: npx
+    args: ["-y", "@playwright/mcp"]
+    required: true
+
+  - binding_capability: mcp_storybook
+    scope: project
+    transport: stdio
+    command: npx
+    args: ["-y", "@storybook/mcp"]
+    required: false  # needed once Storybook is wired in 09

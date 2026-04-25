@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crank.dev/layers/01-business-decomposition/input.schema.json",
+  "title": "Business Decomposition — Input",
+  "description": "Inputs to layer 01. The bootstrap report is the upstream ref; target_url is the primary override and brief is optional human augmentation.",
+  "type": "object",
+  "required": ["upstream_refs", "overrides"],
+  "additionalProperties": false,
+  "properties": {
+    "upstream_refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["layer", "artifact_path"],
+        "additionalProperties": false,
+        "properties": {
+          "layer": { "const": "00-bootstrap" },
+          "artifact_path": { "type": "string" }
+        }
+      }
+    },
+    "overrides": {
+      "type": "object",
+      "required": ["target_url"],
+      "additionalProperties": false,
+      "properties": {
+        "target_url":   { "type": "string", "format": "uri" },
+        "manual_brief": { "type": ["string", "null"], "description": "Optional human-supplied augmentations layered on top of the live-URL extraction." }
+      }
+    }
+  }
+}

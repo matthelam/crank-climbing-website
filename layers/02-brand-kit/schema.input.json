@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crank.dev/layers/_template/input.schema.json",
+  "title": "Layer Input — Template",
+  "description": "Replace title, description, and properties with this layer's actual input contract. Inputs MUST reference upstream artifact paths, not embed their content.",
+  "type": "object",
+  "required": ["upstream_refs"],
+  "additionalProperties": false,
+  "properties": {
+    "upstream_refs": {
+      "type": "array",
+      "description": "References to upstream artifacts this layer consumes.",
+      "items": {
+        "type": "object",
+        "required": ["layer", "artifact_path"],
+        "additionalProperties": false,
+        "properties": {
+          "layer": { "type": "string", "description": "Layer id, e.g. 'XX-prev'." },
+          "artifact_path": { "type": "string", "description": "Repo-relative path to the locked-once artifact." }
+        }
+      }
+    },
+    "overrides": {
+      "type": "object",
+      "description": "Optional human-supplied overrides layered on top of upstream inputs.",
+      "additionalProperties": true
+    }
+  }
+}

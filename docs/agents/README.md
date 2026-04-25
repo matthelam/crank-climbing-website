@@ -19,5 +19,4 @@ Scan Signals top-down; the first match names the convention you need.
 
 - [`CLAUDE.md`](../../CLAUDE.md) — Claude Code.
 - [`AGENTS.md`](../../AGENTS.md) — generic agent spec per the AGENTS.md convention.
-- [`.github/copilot-instructions.md`](../../.github/copilot-instructions.md) — GitHub Copilot. *[TBD]*
-- LangGraph node system prompts under [`orchestration/`](../../orchestration/) reference `docs/agents/` by path in their prompt templates.
+- [`.github/copilot-instructions.md`](../../.github/copilot-instructions.md) — GitHub Copilot.- LangGraph node system prompts under [`orchestration/`](../../orchestration/) reference `docs/agents/` by path in their prompt templates.

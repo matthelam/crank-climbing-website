@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crank.dev/infrastructure/github-repo.schema.json",
+  "title": "GitHub Repository Declared State",
+  "description": "Declarative target state for the GitHub repository. The bootstrap layer converges actual state to this declaration; the maintenance layer reports drift.",
+  "type": "object",
+  "required": ["owner", "name", "default_branch", "visibility"],
+  "additionalProperties": false,
+  "properties": {
+    "owner": { "type": "string" },
+    "name": { "type": "string" },
+    "default_branch": { "type": "string", "default": "main" },
+    "visibility": { "enum": ["public", "private", "internal"] },
+    "description": { "type": "string" },
+    "topics": { "type": "array", "items": { "type": "string" } },
+    "branch_protection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "required_status_checks": { "type": "array", "items": { "type": "string" } },
+        "require_pr_review": { "type": "boolean", "default": true },
+        "required_approving_review_count": { "type": "integer", "minimum": 0, "default": 1 },
+        "dismiss_stale_reviews": { "type": "boolean", "default": true },
+        "require_linear_history": { "type": "boolean", "default": true },
+        "allow_force_pushes": { "type": "boolean", "default": false },
+        "allow_deletions": { "type": "boolean", "default": false }
+      }
+    },
+    "labels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "color"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string" },
+          "color": { "type": "string", "pattern": "^[0-9a-fA-F]{6}$" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "secrets_required": {
+      "type": "array",
+      "description": "Names of repo-level secrets that must exist for CI to function. Values live elsewhere; this schema declares only the names.",
+      "items": { "type": "string" }
+    }
+  }
+}

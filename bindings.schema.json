@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crank.dev/bindings.schema.json",
+  "title": "Crank Scaffold Bindings Manifest",
+  "description": "Single source of truth mapping abstract capabilities to concrete tools. Editing this file is how a clone changes its tech stack without altering the workflow or layers.",
+  "type": "object",
+  "required": ["schema_version", "capabilities"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1,
+      "description": "Manifest schema version. Bump only on breaking schema changes."
+    },
+    "scaffold": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "clone_of": { "type": "string", "description": "Upstream scaffold reference if this repo was cloned from one." }
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "description": "Map of capability id -> capability definition. Capability ids are stable; tool choices behind them swap freely.",
+      "patternProperties": {
+        "^[a-z][a-z0-9_]*$": { "$ref": "#/$defs/capability" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "capability": {
+      "type": "object",
+      "required": ["category", "description", "ai_binding"],
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "enum": ["core", "frontend", "quality", "ai_tooling", "operations", "infra", "design", "extraction"],
+          "description": "Grouping used by generated README tables."
+        },
+        "description": {
+          "type": "string",
+          "description": "Signal — the task that needs action. Becomes the row label in the rendered Standard Platform table."
+        },
+        "ai_binding": {
+          "$ref": "#/$defs/binding",
+          "description": "Tool used by AI agents to deliver this capability."
+        },
+        "human_binding": {
+          "$ref": "#/$defs/binding",
+          "description": "Tool used by humans for the same capability. Defaults to ai_binding when omitted."
+        },
+        "install": {
+          "$ref": "#/$defs/install",
+          "description": "How the bootstrap layer brings this tool into existence on the local environment. Omit for cloud-only capabilities."
+        },
+        "last_checked": {
+          "type": "string",
+          "format": "date",
+          "description": "ISO date the version pin was last verified against upstream by the maintenance layer."
+        },
+        "supersedes": {
+          "type": "string",
+          "description": "If this capability replaced another, name the prior capability id. Lock-once audit trail."
+        }
+      }
+    },
+    "binding": {
+      "type": "object",
+      "required": ["tool", "version"],
+      "additionalProperties": false,
+      "properties": {
+        "tool": { "type": "string", "description": "Canonical tool name." },
+        "version": {
+          "type": "string",
+          "description": "Pinned version. Floating ranges (latest, ^x, *) are not acceptable per Standard Platform version policy."
+        },
+        "docs_url": { "type": "string", "format": "uri" },
+        "notes": { "type": "string" }
+      }
+    },
+    "install": {
+      "type": "object",
+      "required": ["method", "verify_cmd"],
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "enum": ["winget", "npm", "pip", "uv", "ps_script", "mcp_config", "skill_file", "manual", "vendor", "github_release"],
+          "description": "How the tool is installed on a fresh Windows VM."
+        },
+        "package": { "type": "string", "description": "Package id for the chosen method (e.g. winget id, npm package name)." },
+        "install_cmd": { "type": "string", "description": "Optional override; otherwise derived from method + package." },
+        "verify_cmd": { "type": "string", "description": "PowerShell command that prints the installed version on success and exits non-zero on failure." },
+        "pin_source": { "type": "string", "description": "Where the version pin is recorded outside this manifest, if anywhere (e.g. package.json, infrastructure/vm/tooling.yaml)." },
+        "post_install": { "type": "string", "description": "Optional PowerShell snippet to run after install (e.g. CLI login prompt)." }
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crank.dev/layers/_template/output.schema.json",
+  "title": "Layer Output — Template",
+  "description": "Replace title, description, and properties with this layer's actual output contract. Outputs are lock-once artifacts: revisions produce new files, never edits.",
+  "type": "object",
+  "required": ["artifact_id", "layer", "produced_at", "supersedes", "body"],
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": { "type": "string", "description": "Stable id, typically slug-timestamp." },
+    "layer": { "type": "string", "description": "Layer id that produced this artifact." },
+    "produced_at": { "type": "string", "format": "date-time" },
+    "supersedes": {
+      "type": ["string", "null"],
+      "description": "artifact_id of the prior locked artifact this one replaces, or null if first."
+    },
+    "upstream_refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["layer", "artifact_id"],
+        "additionalProperties": false,
+        "properties": {
+          "layer": { "type": "string" },
+          "artifact_id": { "type": "string" }
+        }
+      }
+    },
+    "body": {
+      "description": "Layer-specific payload. Replace with concrete schema in the per-layer copy.",
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crank.dev/layers/01-business-decomposition/output.schema.json",
+  "title": "Business Decomposition — Output",
+  "description": "A structured map of the target business's functions across the Conversion / Consideration / Retention tiers, with extracted tone notes and asset references.",
+  "type": "object",
+  "required": ["artifact_id", "layer", "produced_at", "supersedes", "body"],
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": { "type": "string" },
+    "layer": { "const": "01-business-decomposition" },
+    "produced_at": { "type": "string", "format": "date-time" },
+    "supersedes": { "type": ["string", "null"] },
+    "upstream_refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["layer", "artifact_id"],
+        "additionalProperties": false,
+        "properties": {
+          "layer": { "type": "string" },
+          "artifact_id": { "type": "string" }
+        }
+      }
+    },
+    "body": {
+      "type": "object",
+      "required": ["target_url", "tiers", "tone", "assets"],
+      "additionalProperties": false,
+      "properties": {
+        "target_url": { "type": "string", "format": "uri" },
+        "manual_brief_used": { "type": "boolean", "default": false },
+        "tiers": {
+          "type": "object",
+          "required": ["conversion", "consideration", "retention"],
+          "additionalProperties": false,
+          "properties": {
+            "conversion":    { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/business_function" } },
+            "consideration": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/business_function" } },
+            "retention":     { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/business_function" } }
+          }
+        },
+        "tone": {
+          "type": "object",
+          "required": ["voice", "register", "examples"],
+          "additionalProperties": false,
+          "properties": {
+            "voice":    { "type": "string", "description": "1-2 sentence summary of brand voice." },
+            "register": { "enum": ["formal", "informal", "playful", "technical", "warm", "authoritative"] },
+            "examples": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+          }
+        },
+        "assets": {
+          "type": "array",
+          "description": "Captured asset references found on the live site.",
+          "items": {
+            "type": "object",
+            "required": ["kind", "url"],
+            "additionalProperties": false,
+            "properties": {
+              "kind": { "enum": ["logo", "image", "video", "pdf", "social", "other"] },
+              "url":  { "type": "string", "format": "uri" },
+              "note": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "business_function": {
+      "type": "object",
+      "required": ["id", "name", "description", "evidence_refs"],
+      "additionalProperties": false,
+      "properties": {
+        "id":   { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["source", "quote_or_url"],
+            "additionalProperties": false,
+            "properties": {
+              "source": { "enum": ["live_url", "manual_brief"] },
+              "quote_or_url": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

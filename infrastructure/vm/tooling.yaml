@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../_schemas/vm-tooling.schema.json
+# Declared state: which CLIs and runtimes must be installed on the local Windows VM.
+# Each entry references a binding capability whose `install` block governs how to install it.
+# The bootstrap layer reads this file plus bindings.yaml to converge state.
+
+os:
+  family: windows
+  min_version: "10.0.22621"  # Windows 11
+
+tools:
+  - id: gh
+    binding_capability: source_hosting
+    required: true
+  - id: node
+    binding_capability: package_manager
+    required: true
+    notes: "npm comes with Node.js LTS via winget OpenJS.NodeJS.LTS."
+  - id: vercel
+    binding_capability: hosting
+    required: true
+  - id: claude
+    binding_capability: agent_runtime
+    required: true
+  - id: python
+    binding_capability: agent_sdk
+    required: true
+    notes: "Python 3.11+ for the Claude Agent SDK and LangGraph orchestrator."
+  - id: defuddle
+    binding_capability: page_extraction
+    required: true

@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../_schemas/vercel-project.schema.json
+# Declared Vercel project state.
+
+name: crank-climbing-website
+team: null
+framework: nextjs
+production_branch: main
+domains: []   # add custom domains as the rebuild progresses
+
+env_var_refs:
+  - name: NEXT_PUBLIC_SITE_URL
+    target: [production, preview, development]
+    secret: false
+
+analytics_enabled: true
+speed_insights_enabled: true

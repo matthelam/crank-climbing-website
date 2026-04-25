@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=../_schemas/github-repo.schema.json
+# Declared GitHub repository state. Bootstrap converges; maintenance reports drift.
+
+owner: "lammp003"          # change per clone
+name: "crank-climbing-website"
+default_branch: main
+visibility: public
+description: "AI-first website rebuild scaffold — Crank Climbing"
+topics:
+  - ai-first
+  - langgraph
+  - claude-code
+  - scaffold
+
+branch_protection:
+  required_status_checks:
+    - "build"
+    - "type-check"
+    - "test"
+    - "e2e"
+  require_pr_review: true
+  required_approving_review_count: 1
+  dismiss_stale_reviews: true
+  require_linear_history: true
+  allow_force_pushes: false
+  allow_deletions: false
+
+labels:
+  - { name: "type/feature",     color: "1d76db", description: "New capability" }
+  - { name: "type/fix",         color: "d73a4a", description: "Bug fix" }
+  - { name: "type/refactor",    color: "fbca04", description: "Refactor with no behaviour change" }
+  - { name: "type/docs",        color: "0075ca", description: "Documentation only" }
+  - { name: "layer/00-bootstrap",         color: "5319e7", description: "" }
+  - { name: "layer/01-business-decomp",   color: "5319e7", description: "" }
+  - { name: "layer/02-brand-kit",         color: "5319e7", description: "" }
+  - { name: "layer/03-ux",                color: "5319e7", description: "" }
+  - { name: "layer/scaffold",             color: "5319e7", description: "Scaffold-itself changes" }
+  - { name: "supersede",        color: "f9d0c4", description: "Lock-once supersede of a prior intent artifact" }
+
+secrets_required:
+  - ANTHROPIC_API_KEY
+  - VERCEL_TOKEN

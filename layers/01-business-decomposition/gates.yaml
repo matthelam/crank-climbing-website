@@ -1,0 +1,38 @@
+# Gates definition for layer XX. Authoritative when layer.md and this file disagree.
+#
+# The orchestration root graph reads this file to decide whether to enter the layer,
+# whether to invoke the HITL gate node, and how to wire loop edges.
+
+entry:
+  - id: predecessor_artifact_exists
+    description: The output of the predecessor layer is committed and discoverable.
+  - id: input_validates
+    description: Resolved input matches schema.input.json.
+
+exit:
+  - id: output_artifact_committed
+    description: A new artifact has been written under intent/ and added to git.
+  - id: output_validates
+    description: Output matches schema.output.json.
+  - id: hitl_gate_passed
+    description: When HITL policy is required (or optional + triggered), the human approval is recorded.
+
+hitl:
+  policy: optional   # optional | required | skip
+  triggers:
+    - id: exit_uncertainty_above_threshold
+      description: The skill's self-reported confidence on its output is below 0.7.
+    - id: supersede_of_locked_artifact
+      description: This invocation produces a supersede; humans verify supersedes by default.
+
+loop_edges:
+  retry_within_step:
+    when: validation_fails
+    max_attempts: 3
+    description: Same skill invocation re-run with the validation error as feedback.
+  re_enter_step:
+    when: hitl_supersede
+    description: Human supersede of this layer's output triggers a fresh invocation with the override.
+  re_enter_phase:
+    when: upstream_artifact_superseded
+    description: Predecessor artifact was superseded; re-enter from the layer that owns the change.
